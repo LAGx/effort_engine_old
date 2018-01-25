@@ -7,8 +7,6 @@ using namespace std;
 
 int main(){
 
-    string normal;
-    int a = 92;
     cout << "hello world 245" << endl;
     double NOT_A = 12.85;
 
