@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -9,6 +10,7 @@ int main(){
     int a = 92;
     cout << "hello world 245" << endl;
     double NOT_A = 12.85;
+    string newstr = "WTFIII";
 
 #ifdef DEBUG_MODE
     cout << "DEBUG_MODE" << endl;
