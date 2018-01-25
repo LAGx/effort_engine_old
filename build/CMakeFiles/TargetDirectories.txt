@@ -1,0 +1,3 @@
+/home/kvark/effort_project/effort_engine/build/CMakeFiles/edit_cache.dir
+/home/kvark/effort_project/effort_engine/build/CMakeFiles/rebuild_cache.dir
+/home/kvark/effort_project/effort_engine/build/CMakeFiles/../effort_engine.dir

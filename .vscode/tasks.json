@@ -1,0 +1,43 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build | DEBUG",
+            "type": "shell",
+            "command": "cd build ; cmake .. -DCMAKE_BUILD_TYPE=Debug -DOS=LINUX_OS; make ",
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "build and run | DEBUG",
+            "type": "shell",
+            "command": "cd build ; cmake .. -DCMAKE_BUILD_TYPE=Debug -DOS=LINUX_OS; make ;echo \"\n- launching -\"; ../effort_engine ; echo \"- done -\" ",
+            "problemMatcher": "$gcc",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "echo \"\n- launching -\"; ./effort_engine ; echo \"- done -\"",
+            "problemMatcher": "$gcc"
+        },
+
+
+        {
+            "label": "build | RELEASE",
+            "type": "shell",
+            "command": "cd build ; cmake .. -DCMAKE_BUILD_TYPE=Release -DOS=LINUX_OS; make ",
+            "problemMatcher": "$gcc",
+        },
+        {
+            "label": "build and run | RELEASE",
+            "type": "shell",
+            "command": "cd build ; cmake .. -DCMAKE_BUILD_TYPE=Release -DOS=LINUX_OS; make ;echo \"\n- launching -\"; ../effort_engine ; echo \"- done -\" ",
+            "problemMatcher": "$gcc",
+        },
+    ]
+}
