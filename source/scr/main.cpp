@@ -3,11 +3,12 @@
 using namespace std;
 
 
+
 int main(){
 
     int a = 92;
-    cout << "hello world 17" << endl;
-    
+    cout << "hello world 245" << endl;
+    double NOT_A = 12.85;
 
 #ifdef DEBUG_MODE
     cout << "DEBUG_MODE" << endl;
