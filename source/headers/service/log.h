@@ -6,7 +6,13 @@
 
 namespace eff{
 
-
+/*!
+@brief class for singlethread logging in file
+@example 
+Log::WriteTo().warning("hello world", true); //will write warning to the last or defoult file
+Log::WriteTo("texas.txt").log("MAU MAU!!"); //will write log "MAU MAU!!" without time in file (prefix_namefile+"texas.txt"). And set this file as default
+@throw runtime_error -File can not be open. it`s impossible to write log.
+*/
 class Log{
 public:
 
@@ -17,15 +23,15 @@ public:
     @param[in] log_file_name {filename to write a log}
     \throw std::runtime_error if unable open current file
     */
-    static Log& WriteTo(std::string log_file_name = "");
+    static Log& WriteTo(std::string log_filename = "");
 
 
     ///write log
-    void log(std::string log_text, bool show_time = false);
+    void log(const std::string& log_text, bool show_time = false);
 
 
     ///write warning
-	void warning(std::string warning_text, bool show_time = false);
+	void warning(const std::string& warning_text, bool show_time = false);
 
 
     ///clear current file
@@ -45,7 +51,7 @@ public:
     /// simple Exeption with writing error to last log file
     class Exception{
     public:
-        Exception(std::string error, bool show_time = false);
+        Exception(const std::string& error, bool show_time = false);
     };
 
 private:
@@ -53,7 +59,7 @@ private:
     Log(); 
 
     ///can use only for Exeption class
-    void error(std::string error_text, bool show_time = false);
+    void error(const std::string& error_text, bool show_time = false);
 
     static std::unique_ptr<Log> log_ptr;    //< ptr of class
     std::string current_log_file_name = ""; //< name of last file

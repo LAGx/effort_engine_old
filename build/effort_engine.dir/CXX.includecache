@@ -29,8 +29,8 @@ string
 -
 cmath
 -
-service/localTime.h
-/home/kvark/effort_project/effort_engine/source/scr/service/localTime.h
+service/log.h
+/home/kvark/effort_project/effort_engine/source/scr/service/log.h
 
 /home/kvark/effort_project/effort_engine/source/scr/service/localTime.cpp
 service/localTime.h
@@ -39,8 +39,16 @@ string
 -
 ctime
 -
+stdexcept
+-
 
 /home/kvark/effort_project/effort_engine/source/scr/service/log.cpp
 service/log.h
 /home/kvark/effort_project/effort_engine/source/scr/service/service/log.h
+string
+-
+memory
+-
+stdexcept
+-
 

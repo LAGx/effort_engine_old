@@ -1,16 +1,16 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-#include "service/localTime.h"
+#include "service/log.h"
 
 using namespace std;
 using namespace eff;
 
-int main(int argc, char **argv) {
+int main() {
     
-    LocalTime time;
-
-    time(LocalTime::TimeType::Day);
+    Log::WriteTo("log1.txt").log("hello ", true);
+    Log::WriteTo().log("hello  1", true);
+    Log::WriteTo("new_loging.txt").warning("hello  2", true);
 
     return 0;
 }

@@ -6,6 +6,9 @@ namespace eff{
 /*!
 @brief functor, that return time of local machine
 @warning low performance. 
+@example 
+LocalTime loct;
+loct(TimeType::Year); //will return 2018
 */
 class LocalTime{
 public:
@@ -21,7 +24,7 @@ public:
 
     /*!
     @param[in] timeType {what to return}
-    @param[out] time in normal format
+    @return time in normal format
     */
     std::string operator()(LocalTime::TimeType timeType);
 
