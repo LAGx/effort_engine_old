@@ -30,4 +30,5 @@ file(GLOB_RECURSE ALL_CPP_NATIVE_CODE "source/scr/*.cpp")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 include_directories("source/headers/")
 
+
 add_executable(../${PROJECT_NAME} ${ALL_CPP_NATIVE_CODE})

@@ -6,9 +6,41 @@
 
 #IncludeRegexTransform: 
 
+../source/headers/service/localTime.h
+string
+-
+ctime
+-
+
+../source/headers/service/log.h
+string
+-
+memory
+-
+fstream
+-
+localTime.h
+../source/headers/service/localTime.h
+
 /home/kvark/effort_project/effort_engine/source/scr/main.cpp
 iostream
 -
 string
 -
+cmath
+-
+service/localTime.h
+/home/kvark/effort_project/effort_engine/source/scr/service/localTime.h
+
+/home/kvark/effort_project/effort_engine/source/scr/service/localTime.cpp
+service/localTime.h
+/home/kvark/effort_project/effort_engine/source/scr/service/service/localTime.h
+string
+-
+ctime
+-
+
+/home/kvark/effort_project/effort_engine/source/scr/service/log.cpp
+service/log.h
+/home/kvark/effort_project/effort_engine/source/scr/service/service/log.h
 

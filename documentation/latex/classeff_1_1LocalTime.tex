@@ -1,0 +1,59 @@
+\hypertarget{classeff_1_1LocalTime}{}\section{eff\+:\+:Local\+Time Class Reference}
+\label{classeff_1_1LocalTime}\index{eff\+::\+Local\+Time@{eff\+::\+Local\+Time}}
+
+
+functor, that return time of local machine  
+
+
+
+
+{\ttfamily \#include $<$local\+Time.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classeff_1_1LocalTime_a09de312805bf8c27785ca4fab8c94767}\label{classeff_1_1LocalTime_a09de312805bf8c27785ca4fab8c94767}} 
+enum {\bfseries Time\+Type} \{ \newline
+{\bfseries Second} = 0, 
+{\bfseries Minute}, 
+{\bfseries Hour}, 
+{\bfseries Day}, 
+\newline
+{\bfseries Month}, 
+{\bfseries Year}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classeff_1_1LocalTime_a602662475583a2d6490a13edb2e5e1cc}{operator()}} (Local\+Time\+::\+Time\+Type time\+Type)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+functor, that return time of local machine 
+
+\begin{DoxyWarning}{Warning}
+low performance. 
+\end{DoxyWarning}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classeff_1_1LocalTime_a602662475583a2d6490a13edb2e5e1cc}\label{classeff_1_1LocalTime_a602662475583a2d6490a13edb2e5e1cc}} 
+\index{eff\+::\+Local\+Time@{eff\+::\+Local\+Time}!operator()@{operator()}}
+\index{operator()@{operator()}!eff\+::\+Local\+Time@{eff\+::\+Local\+Time}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily std\+::string eff\+::\+Local\+Time\+::operator() (\begin{DoxyParamCaption}\item[{Local\+Time\+::\+Time\+Type}]{time\+Type }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em time\+Type} & \{what to return\} \\
+\hline
+\mbox{\tt out}  & {\em time} & in normal format \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/headers/service/local\+Time.\+h\end{DoxyCompactItemize}

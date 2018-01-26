@@ -15,8 +15,8 @@ public:
         Minute,     //< minutes [0, 59]
         Hour,       //< hours   [0, 23]
         Day,        //< days    [1, 31]
-        Month,      //< month   [1, 12]          -m
-        Year        //< year    [in xxxx format] -m
+        Month,      //< month   [1, 12]          
+        Year        //< year    [in xxxx format] 
     };
 
     /*!
@@ -28,7 +28,7 @@ public:
 private:
 
     std::time_t rawtime;
-    std::tm timeinfo;
+    std::tm* timeinfo;
 
 };
 
