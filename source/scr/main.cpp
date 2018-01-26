@@ -1,12 +1,14 @@
 #include <iostream>
 #include <string>
+#include "log.h"
 
 using namespace std;
-
+using namespace eff;
 
 
 int main(){
 
+    
     cout << "hello world 245" << endl;
     double NOT_A = 12.85;
 
