@@ -150,6 +150,60 @@ source/scr/main.cpp.s:
 	$(MAKE) -f CMakeFiles/../effort_engine.dir/build.make CMakeFiles/../effort_engine.dir/source/scr/main.cpp.s
 .PHONY : source/scr/main.cpp.s
 
+source/scr/service/localTime.o: source/scr/service/localTime.cpp.o
+
+.PHONY : source/scr/service/localTime.o
+
+# target to build an object file
+source/scr/service/localTime.cpp.o:
+	$(MAKE) -f CMakeFiles/../effort_engine.dir/build.make CMakeFiles/../effort_engine.dir/source/scr/service/localTime.cpp.o
+.PHONY : source/scr/service/localTime.cpp.o
+
+source/scr/service/localTime.i: source/scr/service/localTime.cpp.i
+
+.PHONY : source/scr/service/localTime.i
+
+# target to preprocess a source file
+source/scr/service/localTime.cpp.i:
+	$(MAKE) -f CMakeFiles/../effort_engine.dir/build.make CMakeFiles/../effort_engine.dir/source/scr/service/localTime.cpp.i
+.PHONY : source/scr/service/localTime.cpp.i
+
+source/scr/service/localTime.s: source/scr/service/localTime.cpp.s
+
+.PHONY : source/scr/service/localTime.s
+
+# target to generate assembly for a file
+source/scr/service/localTime.cpp.s:
+	$(MAKE) -f CMakeFiles/../effort_engine.dir/build.make CMakeFiles/../effort_engine.dir/source/scr/service/localTime.cpp.s
+.PHONY : source/scr/service/localTime.cpp.s
+
+source/scr/service/log.o: source/scr/service/log.cpp.o
+
+.PHONY : source/scr/service/log.o
+
+# target to build an object file
+source/scr/service/log.cpp.o:
+	$(MAKE) -f CMakeFiles/../effort_engine.dir/build.make CMakeFiles/../effort_engine.dir/source/scr/service/log.cpp.o
+.PHONY : source/scr/service/log.cpp.o
+
+source/scr/service/log.i: source/scr/service/log.cpp.i
+
+.PHONY : source/scr/service/log.i
+
+# target to preprocess a source file
+source/scr/service/log.cpp.i:
+	$(MAKE) -f CMakeFiles/../effort_engine.dir/build.make CMakeFiles/../effort_engine.dir/source/scr/service/log.cpp.i
+.PHONY : source/scr/service/log.cpp.i
+
+source/scr/service/log.s: source/scr/service/log.cpp.s
+
+.PHONY : source/scr/service/log.s
+
+# target to generate assembly for a file
+source/scr/service/log.cpp.s:
+	$(MAKE) -f CMakeFiles/../effort_engine.dir/build.make CMakeFiles/../effort_engine.dir/source/scr/service/log.cpp.s
+.PHONY : source/scr/service/log.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +216,12 @@ help:
 	@echo "... source/scr/main.o"
 	@echo "... source/scr/main.i"
 	@echo "... source/scr/main.s"
+	@echo "... source/scr/service/localTime.o"
+	@echo "... source/scr/service/localTime.i"
+	@echo "... source/scr/service/localTime.s"
+	@echo "... source/scr/service/log.o"
+	@echo "... source/scr/service/log.i"
+	@echo "... source/scr/service/log.s"
 .PHONY : help
 
 

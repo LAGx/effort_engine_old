@@ -1,1 +1,1 @@
-/usr/bin/c++    -std=c++11 -g   CMakeFiles/../effort_engine.dir/source/scr/main.cpp.o  -o ../effort_engine -rdynamic 
+/usr/bin/c++    -std=c++11 -g   CMakeFiles/../effort_engine.dir/source/scr/service/log.cpp.o CMakeFiles/../effort_engine.dir/source/scr/service/localTime.cpp.o CMakeFiles/../effort_engine.dir/source/scr/main.cpp.o  -o ../effort_engine -rdynamic 

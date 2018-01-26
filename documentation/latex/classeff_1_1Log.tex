@@ -1,0 +1,52 @@
+\hypertarget{classeff_1_1Log}{}\section{eff\+:\+:Log Class Reference}
+\label{classeff_1_1Log}\index{eff\+::\+Log@{eff\+::\+Log}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classeff_1_1Log_1_1Exception}{Exception}}
+\begin{DoxyCompactList}\small\item\em simple Exeption with writing error to last log file \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classeff_1_1Log_a892a96fb637fb30449c91d7cb1e07c69}\label{classeff_1_1Log_a892a96fb637fb30449c91d7cb1e07c69}} 
+void \mbox{\hyperlink{classeff_1_1Log_a892a96fb637fb30449c91d7cb1e07c69}{log}} (std\+::string log\+\_\+text, bool show\+\_\+time=false)
+\begin{DoxyCompactList}\small\item\em write log \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classeff_1_1Log_a8d73934e2238241da184f9e4a5ed2a11}\label{classeff_1_1Log_a8d73934e2238241da184f9e4a5ed2a11}} 
+void \mbox{\hyperlink{classeff_1_1Log_a8d73934e2238241da184f9e4a5ed2a11}{warning}} (std\+::string warning\+\_\+text, bool show\+\_\+time=false)
+\begin{DoxyCompactList}\small\item\em write warning \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classeff_1_1Log_a5a50ce8ed135a05f9054932cffc959d0}\label{classeff_1_1Log_a5a50ce8ed135a05f9054932cffc959d0}} 
+void \mbox{\hyperlink{classeff_1_1Log_a5a50ce8ed135a05f9054932cffc959d0}{clear}} ()
+\begin{DoxyCompactList}\small\item\em clear current file \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classeff_1_1Log}{Log}} \& \mbox{\hyperlink{classeff_1_1Log_a2572f93cadda0f68d2918f98535c1a99}{Write\+To}} (std\+::string log\+\_\+file\+\_\+name=\char`\"{}default\+\_\+log.\+txt\char`\"{})
+\begin{DoxyCompactList}\small\item\em static function to call all class. Remember last file to write and change default to last file for writing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classeff_1_1Log_a2572f93cadda0f68d2918f98535c1a99}\label{classeff_1_1Log_a2572f93cadda0f68d2918f98535c1a99}} 
+\index{eff\+::\+Log@{eff\+::\+Log}!Write\+To@{Write\+To}}
+\index{Write\+To@{Write\+To}!eff\+::\+Log@{eff\+::\+Log}}
+\subsubsection{\texorpdfstring{Write\+To()}{WriteTo()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classeff_1_1Log}{Log}}\& eff\+::\+Log\+::\+Write\+To (\begin{DoxyParamCaption}\item[{std\+::string}]{log\+\_\+file\+\_\+name = {\ttfamily \char`\"{}default\+\_\+log.txt\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+static function to call all class. Remember last file to write and change default to last file for writing. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em log\+\_\+file\+\_\+name} & \{filename to write a log\} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if unable open current file \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/headers/service/log.\+h\end{DoxyCompactItemize}

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/../effort_engine.dir/source/scr/service/log.cpp.o"
+  "CMakeFiles/../effort_engine.dir/source/scr/service/localTime.cpp.o"
   "CMakeFiles/../effort_engine.dir/source/scr/main.cpp.o"
   "../effort_engine.pdb"
   "../effort_engine"
