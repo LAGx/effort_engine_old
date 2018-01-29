@@ -7,10 +7,11 @@ using namespace std;
 using namespace eff;
 
 int main() {
-    
-    Log::WriteTo("log1.txt").log("hello ", true);
-    Log::WriteTo().log("hello  1", true);
-    Log::WriteTo("new_loging.txt").warning("hello  2", true);
+
+    Log::WriteTo("error.txt").clear(); Log::WriteTo("log.txt").clear();
+
+
+
 
     return 0;
 }
