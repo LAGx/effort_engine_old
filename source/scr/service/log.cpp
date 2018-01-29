@@ -15,7 +15,7 @@ Log& Log::WriteTo(string log_filename){
         log_ptr = unique_ptr<Log>(new Log());
         if(log_filename == ""){
             log_ptr->current_log_file_name = "log.txt";
-            log_ptr->file_toWrite.open(log_ptr->prefix_namefile + log_ptr->current_log_file_name);
+            log_ptr->file_toWrite.open(log_ptr->prefix_namefile + log_ptr->current_log_file_name, std::ios::app);
             goto pass_default_mechanism;
         }
     }
@@ -24,12 +24,12 @@ Log& Log::WriteTo(string log_filename){
         if(log_ptr->file_toWrite.is_open())
             log_ptr->file_toWrite.close();
         log_ptr->current_log_file_name = log_filename;
-        log_ptr->file_toWrite.open(log_ptr->prefix_namefile + log_ptr->current_log_file_name);
+        log_ptr->file_toWrite.open(log_ptr->prefix_namefile + log_ptr->current_log_file_name, std::ios::app);
     }
 
     pass_default_mechanism:;
     if(!log_ptr->file_toWrite.is_open())
-        throw runtime_error("file can not be open. it`s impossible to write log.");
+        throw runtime_error("file \"" + log_ptr->prefix_namefile + log_ptr->current_log_file_name + "\" can not be open. it`s impossible to write log.");
 
     return *log_ptr;
 }
@@ -83,6 +83,8 @@ void Log::clear(){
     file_toWrite.open(log_ptr->prefix_namefile + log_ptr->current_log_file_name, std::ios_base::trunc);
 }
 
-Log::Exception::Exception(const string& error_text, bool show_time){    
+Log::Exception::Exception(const string& error_text, bool show_time){ 
+    string last_filename = log_ptr->current_log_file_name;
     Log::WriteTo("error.txt").error(error_text, show_time);
+    Log::WriteTo(last_filename).warning("error was catch: " + error_text, true);
 }
