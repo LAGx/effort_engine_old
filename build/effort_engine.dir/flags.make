@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11 -g
 
 CXX_DEFINES = -DDEBUG_MODE=1 -DLINUX_OS
 
-CXX_INCLUDES = -I/home/kvark/effort_project/effort_engine/source/headers 
+CXX_INCLUDES = -I/home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/include -I/home/kvark/effort_project/effort_engine/source/headers -I/usr/local/include/lua -I/usr/local/include/GLFW 
 

@@ -1,0 +1,5 @@
+
+/home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/bin/glslangValidator -V /home/kvark/effort_project/effort_engine/resource/shader/scr/default/shader.frag -o /home/kvark/effort_project/effort_engine/resource/shader/ready/default/frag.spv || exit 1
+/home/kvark/effort_project/effort_engine/resource/shader/scr/default/shader.frag
+/home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/bin/glslangValidator -V /home/kvark/effort_project/effort_engine/resource/shader/scr/default/shader.vert -o /home/kvark/effort_project/effort_engine/resource/shader/ready/default/vert.spv || exit 1
+/home/kvark/effort_project/effort_engine/resource/shader/scr/default/shader.vert
