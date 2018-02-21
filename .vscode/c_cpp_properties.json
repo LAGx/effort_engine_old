@@ -31,11 +31,15 @@
                 "/usr/include/c++/5/backward",
                 "/usr/lib/gcc/x86_64-linux-gnu/5/include",
                 "/usr/local/include",
+                "/usr/local/include/lua",
+                "/usr/local/include/LuaBridge",
                 "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed",
                 "/usr/include/x86_64-linux-gnu",
                 "/usr/include",
                 "${workspaceRoot}",
-                "${workspaceRoot}/source/headers"
+                "${workspaceRoot}/source/headers",
+                "${workspaceRoot}/source/headers",
+                "/usr/local/include/anvil"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",

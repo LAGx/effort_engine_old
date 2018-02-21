@@ -1,7 +1,17 @@
+# by kvark 
+# ready only for linux
+# v0.2 2018.02.03
 
-cmake_minimum_required(VERSION 2.8)
+
+cmake_minimum_required(VERSION 3.7)
 project(effort_engine)
 
+find_package(Vulkan REQUIRED)
+find_package(glfw3 REQUIRED)
+
+#set(ENV{VULKAN_SDK} "/home/kvark/tools/VulkanSDK/1.0.65.0")
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 #progect settings
 
 #debug and release modes
@@ -23,12 +33,32 @@ if( NOT ((${OS} STREQUAL "WIN_OS") OR (${OS} STREQUAL "LINUX_OS") OR (${OS} STRE
 endif()
 add_definitions(-D${OS})
 
+
 #settings variables
 file(GLOB_RECURSE ALL_CPP_NATIVE_CODE "source/scr/*.cpp")
 
-#make settings
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-include_directories("source/headers/")
+
+include_directories("source/headers")
+include_directories("/usr/local/include/lua")
+include_directories("/usr/local/include/GLFW")
+include_directories($ENV{VULKAN_SDK}/include)
+include_directories("/usr/local/include/anvil")
 
 
-add_executable(../${PROJECT_NAME} ${ALL_CPP_NATIVE_CODE})
+add_executable(${PROJECT_NAME} ${ALL_CPP_NATIVE_CODE})
+
+
+target_link_libraries (${PROJECT_NAME} glfw)
+target_include_directories(${PROJECT_NAME} PRIVATE Vulkan::Vulkan)
+target_link_libraries(${PROJECT_NAME} Vulkan::Vulkan)
+#i don`t know why it need there
+target_link_libraries(${PROJECT_NAME} "/usr/local/lib/liblua53.a" ${CMAKE_DL_LIBS})
+
+#anvil libs
+target_link_libraries(${PROJECT_NAME} "/usr/local/lib/anvil/libAnvil.a" ${CMAKE_DL_LIBS})
+target_link_libraries(${PROJECT_NAME} "/usr/local/lib/anvil/libglslang.a" ${CMAKE_DL_LIBS})
+target_link_libraries(${PROJECT_NAME} "/usr/local/lib/anvil/libHLSL.a" ${CMAKE_DL_LIBS})
+target_link_libraries(${PROJECT_NAME} "/usr/local/lib/anvil/libOGLCompiler.a" ${CMAKE_DL_LIBS})
+target_link_libraries(${PROJECT_NAME} "/usr/local/lib/anvil/libOSDependent.a" ${CMAKE_DL_LIBS})
+target_link_libraries(${PROJECT_NAME} "/usr/local/lib/anvil/libSPIRV.a" ${CMAKE_DL_LIBS})
+target_link_libraries(${PROJECT_NAME} "/usr/local/lib/anvil/libSPVRemapper.a" ${CMAKE_DL_LIBS})
