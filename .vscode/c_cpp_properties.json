@@ -41,7 +41,7 @@
                 "${workspaceRoot}/source/headers",
                 "/usr/local/include/anvil"
             ],
-            "defines": [],
+            "defines": ["DEBUG_MODE"],
             "intelliSenseMode": "clang-x64",
             "browse": {
                 "path": [

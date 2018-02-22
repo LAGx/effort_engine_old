@@ -40,14 +40,6 @@ public:
 
     ~Log();
 
-
-#ifdef WIN_OS
-    std::string prefix_namefile = "logs\\";
-#else  //LINUX_OS or MAC_OS
-    std::string prefix_namefile = "logs/";
-#endif
-
-
     /// simple Exeption with writing error to last log file
     class Exception{
     public:
@@ -55,6 +47,12 @@ public:
     };
 
 private:
+
+#ifdef WIN_OS
+    std::string prefix_namefile = "logs\\";
+#else  //LINUX_OS or MAC_OS
+    std::string prefix_namefile = "logs/";
+#endif
 
     Log(); 
 

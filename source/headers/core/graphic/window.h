@@ -23,11 +23,13 @@ public:
         @param surfaceInstance {need VkInstance to create surface}
     */
     struct WindowCreateInfo{
-        string name = "effort_engine";
+        WindowCreateInfo(const VkInstance& srVk_instance);
+        const VkInstance& surfaceInstance;
+        
+        string name = "effort_engine_window";
         glm::vec2 size = {0,0};
         glm::vec2 resolution = {0,0};
         bool isResizable = true;
-        VkInstance& surfaceInstance;
     };
     
 
@@ -41,7 +43,7 @@ private:
     
 
     struct Surface{
-        Surface(const VkInstance& instance,const Window& window);
+        Surface(const VkInstance& instance, Window& window);
         
         const VkInstance& parentInstance;
         VkSurfaceKHR vk_surface;
@@ -51,7 +53,7 @@ private:
 
     WindowCreateInfo info;
 
-    unique_ptr<GLFWwindow> g_window;
+    GLFWwindow* g_window = nullptr;
     unique_ptr<Surface> surface;
 
 };

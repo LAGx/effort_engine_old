@@ -7,8 +7,37 @@
 #include <glm/mat4x4.hpp>
 
 #include <iostream>
+#include "core/graphic/window.h"
+#include "core/graphic/vk_instance.h"
+
+#include "service/log.h"
+using namespace eff;
+using namespace std;
 
 
+int main(){
+    Log::WriteTo("error.txt").clear();
+    Log::WriteTo("log.txt").clear();
+
+
+    VulkanInstance instance;
+    Window::WindowCreateInfo windowInfo(instance.getInstance());
+    windowInfo.size = glm::vec2({900, 500});
+
+    Window window(windowInfo);
+
+    return EXIT_SUCCESS;
+}
+
+
+
+
+
+
+
+
+
+/*
 int main() {
     glfwInit();
 
@@ -34,3 +63,4 @@ int main() {
 
     return 0;
 }
+*/

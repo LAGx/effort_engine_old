@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/effort_engine.dir/source/scr/core/graphic/vk_instance.cpp.o"
+  "CMakeFiles/effort_engine.dir/source/scr/core/graphic/window.cpp.o"
   "CMakeFiles/effort_engine.dir/source/scr/core/scripting/Script.cpp.o"
   "CMakeFiles/effort_engine.dir/source/scr/main.cpp.o"
   "CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.o"
