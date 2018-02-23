@@ -6,24 +6,16 @@
 
 #IncludeRegexTransform: 
 
-../source/headers/core/graphic/vk_instance.h
+../source/headers/core/graphic/vulkan_manager.h
 GLFW/glfw3.h
 -
 string
 -
 memory
--
-vector
--
-
-../source/headers/core/graphic/window.h
-GLFW/glfw3.h
--
-string
 -
 glm/vec2.hpp
 -
-memory
+vector
 -
 
 ../source/headers/core/scripting/Script.h
@@ -56,19 +48,15 @@ fstream
 localTime.h
 ../source/headers/service/localTime.h
 
-/home/kvark/effort_project/effort_engine/source/scr/core/graphic/vk_instance.cpp
-core/graphic/vk_instance.h
-/home/kvark/effort_project/effort_engine/source/scr/core/graphic/core/graphic/vk_instance.h
+/home/kvark/effort_project/effort_engine/source/scr/core/graphic/vulkan_manager.cpp
+core/graphic/vulkan_manager.h
+/home/kvark/effort_project/effort_engine/source/scr/core/graphic/core/graphic/vulkan_manager.h
 service/log.h
 /home/kvark/effort_project/effort_engine/source/scr/core/graphic/service/log.h
 cstring
 -
-
-/home/kvark/effort_project/effort_engine/source/scr/core/graphic/window.cpp
-core/graphic/window.h
-/home/kvark/effort_project/effort_engine/source/scr/core/graphic/core/graphic/window.h
-service/log.h
-/home/kvark/effort_project/effort_engine/source/scr/core/graphic/service/log.h
+memory
+-
 
 /home/kvark/effort_project/effort_engine/source/scr/core/scripting/Script.cpp
 core/scripting/Script.h
@@ -83,10 +71,8 @@ glm/mat4x4.hpp
 -
 iostream
 -
-core/graphic/window.h
-/home/kvark/effort_project/effort_engine/source/scr/core/graphic/window.h
-core/graphic/vk_instance.h
-/home/kvark/effort_project/effort_engine/source/scr/core/graphic/vk_instance.h
+core/graphic/vulkan_manager.h
+/home/kvark/effort_project/effort_engine/source/scr/core/graphic/vulkan_manager.h
 service/log.h
 /home/kvark/effort_project/effort_engine/source/scr/service/log.h
 

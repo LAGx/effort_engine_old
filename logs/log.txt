@@ -1,2 +1,1 @@
 LOG|>  Validation layers was pluged
-WARNING|23:26:23|> error was catch: failed to create window surface! window name: effort_engine_window

@@ -123,59 +123,32 @@ effort_engine/fast:
 	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/build
 .PHONY : effort_engine/fast
 
-source/scr/core/graphic/vk_instance.o: source/scr/core/graphic/vk_instance.cpp.o
+source/scr/core/graphic/vulkan_manager.o: source/scr/core/graphic/vulkan_manager.cpp.o
 
-.PHONY : source/scr/core/graphic/vk_instance.o
-
-# target to build an object file
-source/scr/core/graphic/vk_instance.cpp.o:
-	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vk_instance.cpp.o
-.PHONY : source/scr/core/graphic/vk_instance.cpp.o
-
-source/scr/core/graphic/vk_instance.i: source/scr/core/graphic/vk_instance.cpp.i
-
-.PHONY : source/scr/core/graphic/vk_instance.i
-
-# target to preprocess a source file
-source/scr/core/graphic/vk_instance.cpp.i:
-	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vk_instance.cpp.i
-.PHONY : source/scr/core/graphic/vk_instance.cpp.i
-
-source/scr/core/graphic/vk_instance.s: source/scr/core/graphic/vk_instance.cpp.s
-
-.PHONY : source/scr/core/graphic/vk_instance.s
-
-# target to generate assembly for a file
-source/scr/core/graphic/vk_instance.cpp.s:
-	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vk_instance.cpp.s
-.PHONY : source/scr/core/graphic/vk_instance.cpp.s
-
-source/scr/core/graphic/window.o: source/scr/core/graphic/window.cpp.o
-
-.PHONY : source/scr/core/graphic/window.o
+.PHONY : source/scr/core/graphic/vulkan_manager.o
 
 # target to build an object file
-source/scr/core/graphic/window.cpp.o:
-	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/window.cpp.o
-.PHONY : source/scr/core/graphic/window.cpp.o
+source/scr/core/graphic/vulkan_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.o
+.PHONY : source/scr/core/graphic/vulkan_manager.cpp.o
 
-source/scr/core/graphic/window.i: source/scr/core/graphic/window.cpp.i
+source/scr/core/graphic/vulkan_manager.i: source/scr/core/graphic/vulkan_manager.cpp.i
 
-.PHONY : source/scr/core/graphic/window.i
+.PHONY : source/scr/core/graphic/vulkan_manager.i
 
 # target to preprocess a source file
-source/scr/core/graphic/window.cpp.i:
-	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/window.cpp.i
-.PHONY : source/scr/core/graphic/window.cpp.i
+source/scr/core/graphic/vulkan_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.i
+.PHONY : source/scr/core/graphic/vulkan_manager.cpp.i
 
-source/scr/core/graphic/window.s: source/scr/core/graphic/window.cpp.s
+source/scr/core/graphic/vulkan_manager.s: source/scr/core/graphic/vulkan_manager.cpp.s
 
-.PHONY : source/scr/core/graphic/window.s
+.PHONY : source/scr/core/graphic/vulkan_manager.s
 
 # target to generate assembly for a file
-source/scr/core/graphic/window.cpp.s:
-	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/window.cpp.s
-.PHONY : source/scr/core/graphic/window.cpp.s
+source/scr/core/graphic/vulkan_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.s
+.PHONY : source/scr/core/graphic/vulkan_manager.cpp.s
 
 source/scr/core/scripting/Script.o: source/scr/core/scripting/Script.cpp.o
 
@@ -294,12 +267,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... effort_engine"
-	@echo "... source/scr/core/graphic/vk_instance.o"
-	@echo "... source/scr/core/graphic/vk_instance.i"
-	@echo "... source/scr/core/graphic/vk_instance.s"
-	@echo "... source/scr/core/graphic/window.o"
-	@echo "... source/scr/core/graphic/window.i"
-	@echo "... source/scr/core/graphic/window.s"
+	@echo "... source/scr/core/graphic/vulkan_manager.o"
+	@echo "... source/scr/core/graphic/vulkan_manager.i"
+	@echo "... source/scr/core/graphic/vulkan_manager.s"
 	@echo "... source/scr/core/scripting/Script.o"
 	@echo "... source/scr/core/scripting/Script.i"
 	@echo "... source/scr/core/scripting/Script.s"
