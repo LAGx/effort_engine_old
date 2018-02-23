@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/effort_engine.dir/source/scr/app.cpp.o"
+  "CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.o"
   "CMakeFiles/effort_engine.dir/source/scr/core/scripting/Script.cpp.o"
+  "CMakeFiles/effort_engine.dir/source/scr/main.cpp.o"
   "CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.o"
   "CMakeFiles/effort_engine.dir/source/scr/service/log.cpp.o"
-  "CMakeFiles/effort_engine.dir/source/scr/teapot_data.cpp.o"
   "effort_engine.pdb"
   "effort_engine"
 )

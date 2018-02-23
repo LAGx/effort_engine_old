@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/kvark/effort_project/effort_engine/source/scr/app.cpp" "/home/kvark/effort_project/effort_engine/build/CMakeFiles/effort_engine.dir/source/scr/app.cpp.o"
+  "/home/kvark/effort_project/effort_engine/source/scr/core/graphic/vulkan_manager.cpp" "/home/kvark/effort_project/effort_engine/build/CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.o"
   "/home/kvark/effort_project/effort_engine/source/scr/core/scripting/Script.cpp" "/home/kvark/effort_project/effort_engine/build/CMakeFiles/effort_engine.dir/source/scr/core/scripting/Script.cpp.o"
+  "/home/kvark/effort_project/effort_engine/source/scr/main.cpp" "/home/kvark/effort_project/effort_engine/build/CMakeFiles/effort_engine.dir/source/scr/main.cpp.o"
   "/home/kvark/effort_project/effort_engine/source/scr/service/localTime.cpp" "/home/kvark/effort_project/effort_engine/build/CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.o"
   "/home/kvark/effort_project/effort_engine/source/scr/service/log.cpp" "/home/kvark/effort_project/effort_engine/build/CMakeFiles/effort_engine.dir/source/scr/service/log.cpp.o"
-  "/home/kvark/effort_project/effort_engine/source/scr/teapot_data.cpp" "/home/kvark/effort_project/effort_engine/build/CMakeFiles/effort_engine.dir/source/scr/teapot_data.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

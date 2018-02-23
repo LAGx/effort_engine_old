@@ -123,32 +123,32 @@ effort_engine/fast:
 	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/build
 .PHONY : effort_engine/fast
 
-source/scr/app.o: source/scr/app.cpp.o
+source/scr/core/graphic/vulkan_manager.o: source/scr/core/graphic/vulkan_manager.cpp.o
 
-.PHONY : source/scr/app.o
+.PHONY : source/scr/core/graphic/vulkan_manager.o
 
 # target to build an object file
-source/scr/app.cpp.o:
-	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/app.cpp.o
-.PHONY : source/scr/app.cpp.o
+source/scr/core/graphic/vulkan_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.o
+.PHONY : source/scr/core/graphic/vulkan_manager.cpp.o
 
-source/scr/app.i: source/scr/app.cpp.i
+source/scr/core/graphic/vulkan_manager.i: source/scr/core/graphic/vulkan_manager.cpp.i
 
-.PHONY : source/scr/app.i
+.PHONY : source/scr/core/graphic/vulkan_manager.i
 
 # target to preprocess a source file
-source/scr/app.cpp.i:
-	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/app.cpp.i
-.PHONY : source/scr/app.cpp.i
+source/scr/core/graphic/vulkan_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.i
+.PHONY : source/scr/core/graphic/vulkan_manager.cpp.i
 
-source/scr/app.s: source/scr/app.cpp.s
+source/scr/core/graphic/vulkan_manager.s: source/scr/core/graphic/vulkan_manager.cpp.s
 
-.PHONY : source/scr/app.s
+.PHONY : source/scr/core/graphic/vulkan_manager.s
 
 # target to generate assembly for a file
-source/scr/app.cpp.s:
-	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/app.cpp.s
-.PHONY : source/scr/app.cpp.s
+source/scr/core/graphic/vulkan_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.s
+.PHONY : source/scr/core/graphic/vulkan_manager.cpp.s
 
 source/scr/core/scripting/Script.o: source/scr/core/scripting/Script.cpp.o
 
@@ -176,6 +176,33 @@ source/scr/core/scripting/Script.s: source/scr/core/scripting/Script.cpp.s
 source/scr/core/scripting/Script.cpp.s:
 	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/scripting/Script.cpp.s
 .PHONY : source/scr/core/scripting/Script.cpp.s
+
+source/scr/main.o: source/scr/main.cpp.o
+
+.PHONY : source/scr/main.o
+
+# target to build an object file
+source/scr/main.cpp.o:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/main.cpp.o
+.PHONY : source/scr/main.cpp.o
+
+source/scr/main.i: source/scr/main.cpp.i
+
+.PHONY : source/scr/main.i
+
+# target to preprocess a source file
+source/scr/main.cpp.i:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/main.cpp.i
+.PHONY : source/scr/main.cpp.i
+
+source/scr/main.s: source/scr/main.cpp.s
+
+.PHONY : source/scr/main.s
+
+# target to generate assembly for a file
+source/scr/main.cpp.s:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/main.cpp.s
+.PHONY : source/scr/main.cpp.s
 
 source/scr/service/localTime.o: source/scr/service/localTime.cpp.o
 
@@ -231,33 +258,6 @@ source/scr/service/log.cpp.s:
 	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/service/log.cpp.s
 .PHONY : source/scr/service/log.cpp.s
 
-source/scr/teapot_data.o: source/scr/teapot_data.cpp.o
-
-.PHONY : source/scr/teapot_data.o
-
-# target to build an object file
-source/scr/teapot_data.cpp.o:
-	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/teapot_data.cpp.o
-.PHONY : source/scr/teapot_data.cpp.o
-
-source/scr/teapot_data.i: source/scr/teapot_data.cpp.i
-
-.PHONY : source/scr/teapot_data.i
-
-# target to preprocess a source file
-source/scr/teapot_data.cpp.i:
-	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/teapot_data.cpp.i
-.PHONY : source/scr/teapot_data.cpp.i
-
-source/scr/teapot_data.s: source/scr/teapot_data.cpp.s
-
-.PHONY : source/scr/teapot_data.s
-
-# target to generate assembly for a file
-source/scr/teapot_data.cpp.s:
-	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/teapot_data.cpp.s
-.PHONY : source/scr/teapot_data.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -267,21 +267,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... effort_engine"
-	@echo "... source/scr/app.o"
-	@echo "... source/scr/app.i"
-	@echo "... source/scr/app.s"
+	@echo "... source/scr/core/graphic/vulkan_manager.o"
+	@echo "... source/scr/core/graphic/vulkan_manager.i"
+	@echo "... source/scr/core/graphic/vulkan_manager.s"
 	@echo "... source/scr/core/scripting/Script.o"
 	@echo "... source/scr/core/scripting/Script.i"
 	@echo "... source/scr/core/scripting/Script.s"
+	@echo "... source/scr/main.o"
+	@echo "... source/scr/main.i"
+	@echo "... source/scr/main.s"
 	@echo "... source/scr/service/localTime.o"
 	@echo "... source/scr/service/localTime.i"
 	@echo "... source/scr/service/localTime.s"
 	@echo "... source/scr/service/log.o"
 	@echo "... source/scr/service/log.i"
 	@echo "... source/scr/service/log.s"
-	@echo "... source/scr/teapot_data.o"
-	@echo "... source/scr/teapot_data.i"
-	@echo "... source/scr/teapot_data.s"
 .PHONY : help
 
 
