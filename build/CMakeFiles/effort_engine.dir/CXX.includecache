@@ -57,6 +57,8 @@ cstring
 -
 memory
 -
+algorithm
+-
 
 /home/kvark/effort_project/effort_engine/source/scr/core/scripting/Script.cpp
 core/scripting/Script.h

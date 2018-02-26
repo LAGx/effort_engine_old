@@ -148,10 +148,24 @@ private:
 
     };
 
+    class VulkanPhisicalDevice{
+    public:
 
-    unique_ptr<Window> window = nullptr;
-    unique_ptr<VulkanInstance> instance = nullptr;
+        VulkanPhisicalDevice(VulkanInstance& instance);
 
+    private:
+
+        //TODO more complex raiting
+        typedef size_t rateDevicePoints;
+        rateDevicePoints rateDevice(const VkPhysicalDevice& device);//< if return 0, then this device don`t suppurt Vulkan
+
+        VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
+
+    };
+
+    unique_ptr<Window>                 window = nullptr;
+    unique_ptr<VulkanInstance>         instance = nullptr;
+    unique_ptr<VulkanPhisicalDevice>   phisicalDevice = nullptr;
 
 
 };
