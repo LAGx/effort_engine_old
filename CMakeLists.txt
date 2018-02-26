@@ -1,6 +1,6 @@
 # by kvark 
 # ready only for linux
-# v0.2 2018.02.03
+# v0.3
 
 
 cmake_minimum_required(VERSION 3.7)
@@ -21,6 +21,7 @@ if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
 elseif(${CMAKE_BUILD_TYPE} STREQUAL "Release")
     message(">> enable RELEASE_MODE mode")
     add_definitions(-DRELEASE_MODE=0)
+    add_definitions(-DNDEBUG)
 else()
     message(FATAL_ERROR "flag -DCMAKE_BUILD_TYPE=" ${CMAKE_BUILD_TYPE} " is invalid") #try to set -DCMAKE_BUILD_TYPE=Release or -DCMAKE_BUILD_TYPE=Debug
 endif()
