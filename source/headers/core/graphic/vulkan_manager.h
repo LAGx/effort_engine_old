@@ -100,18 +100,44 @@ private:
 
     private:
 
-        struct ValidationLayer{
+        class ValidationLayer{
+        public:
+
             ValidationLayer(string filename_VLlist);
 
             bool isSupport(string& error_layer);
             const vector<const char*>& getLayersList();
-        
+
+            VkResult setInstanceCallback(VkInstance& instance);
+            void deleteInstanceCallback(VkInstance& instance);
+
         private:
+
+            static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
+                VkDebugReportFlagsEXT flags,
+                VkDebugReportObjectTypeEXT objType,
+                uint64_t obj,
+                size_t location,
+                int32_t code,
+                const char* layerPrefix,
+                const char* msg,
+                void* userData);
 
             vector<const char*> validationLayersList = {
                 "VK_LAYER_LUNARG_standard_validation" //TODO fill vector only with constructor
             };
-        
+
+            VkDebugReportFlagsEXT flagsCallback;
+
+            VkDebugReportCallbackEXT callback;
+
+            VkResult CreateDebugReportCallbackEXT(
+                VkInstance& instance, 
+                const VkDebugReportCallbackCreateInfoEXT* pCreateInfo, 
+                const VkAllocationCallbacks* pAllocator, 
+                VkDebugReportCallbackEXT* pCallback
+            );   
+
         };
 
         VkInstance instance;

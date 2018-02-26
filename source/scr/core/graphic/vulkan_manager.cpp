@@ -113,16 +113,54 @@ VulkanManager::VulkanInstance::VulkanInstance(const InstanceCreateInfo& instance
         
         if(vkCreateInstance(&createInfo, nullptr, &instance) != VK_SUCCESS)
             throw eff::Log::Exception("can`t create VkInstance", true);
+
+        if(validation_layer != nullptr)
+            if(validation_layer->setInstanceCallback(instance) != VK_SUCCESS)
+                throw eff::Log::Exception("can`t create callback of instance", true);
 }
 
 
 VulkanManager::VulkanInstance::~VulkanInstance(){
+    validation_layer->deleteInstanceCallback(instance);
     vkDestroyInstance(instance, nullptr);
 }
 
 
 VulkanManager::VulkanInstance::ValidationLayer::ValidationLayer(string filename_VLlist){
     //TODO implement read Validation layer from list "ValidationLayers.data" to 
+    //TODO get type of errors want to get
+    flagsCallback = VK_DEBUG_REPORT_ERROR_BIT_EXT | VK_DEBUG_REPORT_WARNING_BIT_EXT | VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT | VK_DEBUG_REPORT_ERROR_BIT_EXT | VK_DEBUG_REPORT_DEBUG_BIT_EXT;
+}
+
+VkResult VulkanManager::VulkanInstance::ValidationLayer::setInstanceCallback(VkInstance& instance){
+
+    VkDebugReportCallbackCreateInfoEXT createInfo = {};
+    createInfo.sType = VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT;
+    createInfo.flags = flagsCallback;
+    createInfo.pfnCallback = debugCallback;
+
+    return CreateDebugReportCallbackEXT(instance, &createInfo, nullptr, &callback);
+}
+
+
+VkResult VulkanManager::VulkanInstance::ValidationLayer::CreateDebugReportCallbackEXT(
+    VkInstance& instance, 
+    const VkDebugReportCallbackCreateInfoEXT* pCreateInfo, 
+    const VkAllocationCallbacks* pAllocator, 
+    VkDebugReportCallbackEXT* pCallback) 
+{
+    auto func = (PFN_vkCreateDebugReportCallbackEXT) vkGetInstanceProcAddr(instance, "vkCreateDebugReportCallbackEXT");
+    if (func != nullptr)
+        return func(instance, pCreateInfo, pAllocator, pCallback);
+    else
+        return VK_ERROR_EXTENSION_NOT_PRESENT;      
+}
+
+
+void VulkanManager::VulkanInstance::ValidationLayer::deleteInstanceCallback(VkInstance& instance){
+    auto func = (PFN_vkDestroyDebugReportCallbackEXT) vkGetInstanceProcAddr(instance, "vkDestroyDebugReportCallbackEXT");
+    if (func != nullptr)
+            func(instance, callback, nullptr);
 }
 
 
@@ -177,4 +215,47 @@ vector<const char*> VulkanManager::VulkanInstance::getRequiredExtensions(){
 
 VkInstance& VulkanManager::VulkanInstance::getInstance(){
     return this->instance;
+}
+
+
+VKAPI_ATTR VkBool32 VKAPI_CALL VulkanManager::VulkanInstance::ValidationLayer::debugCallback(
+    VkDebugReportFlagsEXT flags,
+    VkDebugReportObjectTypeEXT objType,
+    uint64_t obj,
+    size_t location,
+    int32_t msgCode,
+    const char* layerPrefix,
+    const char* msg,
+    void* userData)
+{
+    Log::WriteTo("log.log").log("was triggered vulkan debagCallback. type: " + string(layerPrefix),true);
+
+    auto getInfo = [&]()->string{
+        string info = "";
+        info +=   ("\t\tobject type: " + to_string(objType));
+        info += ("\n\t\tmessage: " + string(msg));
+        return info;
+    };
+
+    switch(flags){
+        case VK_DEBUG_REPORT_INFORMATION_BIT_EXT:
+            Log::WriteTo().log(" vulkan: \n" + getInfo(), true);
+            break;
+        case VK_DEBUG_REPORT_WARNING_BIT_EXT:
+            Log::WriteTo().warning(" vulkan: \n" + getInfo(),true);
+            break;
+        case VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT:
+            Log::WriteTo().warning(" vulkan: non optimal use.\n" + getInfo(),true);
+            break;
+        case VK_DEBUG_REPORT_ERROR_BIT_EXT:
+            throw Log::Exception("vulkan: debugCallback\n" + getInfo(),true);
+            break;
+        case VK_DEBUG_REPORT_DEBUG_BIT_EXT:
+            Log::WriteTo().log(" vulkan: \n" + getInfo(), true);
+            break;
+        default:
+            throw Log::Exception("underfined type of error: debugCallback\n" + getInfo(),true);
+    }
+
+    return VK_FALSE;
 }

@@ -15,8 +15,8 @@ using namespace std;
 
 
 int main(){
-    Log::WriteTo("error.txt").clear();
-    Log::WriteTo("log.txt").clear();
+    Log::WriteTo("error.log").clear();
+    Log::WriteTo("log.log").clear();
 
 
     VulkanManager::WindowCreateInfo windowInfo;
