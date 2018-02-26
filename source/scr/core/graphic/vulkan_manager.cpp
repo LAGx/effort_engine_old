@@ -2,6 +2,7 @@
 #include "service/log.h"
 #include <cstring>
 #include <memory>
+#include <algorithm>
 
 using namespace eff;
 using namespace std;
@@ -12,6 +13,7 @@ VulkanManager::VulkanManager(const WindowCreateInfo& windowInfo,const InstanceCr
 
     window = move(unique_ptr<Window>(new Window(windowInfo)));
     instance = move(unique_ptr<VulkanInstance>(new VulkanInstance(instanceInfo)));
+    phisicalDevice = move(unique_ptr<VulkanPhisicalDevice>(new VulkanPhisicalDevice(*instance.get())));
 
     window->setSurface(instance->getInstance());
 }
@@ -22,6 +24,9 @@ VulkanManager::~VulkanManager(){
     instance.reset(nullptr);
     window.reset(nullptr);
 }
+
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 VulkanManager::Window::Window(const WindowCreateInfo& _info):info(_info){
@@ -74,6 +79,9 @@ VulkanManager::Window::Surface::Surface(VkInstance& instance, Window& window):pa
 VulkanManager::Window::Surface::~Surface(){
     vkDestroySurfaceKHR(parentInstance, vk_surface, nullptr);
 }
+
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 VulkanManager::VulkanInstance::VulkanInstance(const InstanceCreateInfo& instanceInfo){
@@ -258,4 +266,57 @@ VKAPI_ATTR VkBool32 VKAPI_CALL VulkanManager::VulkanInstance::ValidationLayer::d
     }
 
     return VK_FALSE;
+}
+
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+VulkanManager::VulkanPhisicalDevice::VulkanPhisicalDevice(VulkanInstance& instance){
+
+    uint32_t deviceCount = 0;
+    vkEnumeratePhysicalDevices(instance.getInstance(), &deviceCount, nullptr);
+
+    if (deviceCount == 0)
+        throw Log::Exception("failed to find GPUs with Vulkan support!");
+
+    vector<VkPhysicalDevice> devices(deviceCount);
+    vkEnumeratePhysicalDevices(instance.getInstance(), &deviceCount, devices.data());
+
+    physicalDevice = *max_element(devices.begin(), devices.end(),[this](const VkPhysicalDevice& dv1, const VkPhysicalDevice& dv2){
+        return rateDevice(dv1) < rateDevice(dv2);
+    });
+
+    if (rateDevice(physicalDevice) == 0) 
+        throw Log::Exception("failed to find a suitable GPU!");
+
+}
+
+
+
+VulkanManager::VulkanPhisicalDevice::rateDevicePoints VulkanManager::VulkanPhisicalDevice::rateDevice(const VkPhysicalDevice& device){
+
+    rateDevicePoints ratePoints = 0;
+
+
+//minimum requaied
+    VkPhysicalDeviceProperties deviceProperties;
+    VkPhysicalDeviceFeatures deviceFeatures;
+    vkGetPhysicalDeviceProperties(device, &deviceProperties);
+    vkGetPhysicalDeviceFeatures(device, &deviceFeatures);
+
+    bool isMinimumRequaiedSupport = deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU &&
+                                                                          deviceFeatures.geometryShader;
+
+    if(isMinimumRequaiedSupport)
+        ratePoints += 1;
+    else
+        return 0;
+
+
+//rate system
+    ratePoints += deviceProperties.limits.maxImageDimension2D;
+    
+
+    return ratePoints;
 }

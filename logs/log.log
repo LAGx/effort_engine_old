@@ -1,17 +1,17 @@
 LOG|>  Validation layers was pluged
-LOG|21:10:21|> was triggered vulkan debagCallback. type: DebugReport
-LOG|21:10:21|>  vulkan: 
+LOG|23:53:23|> was triggered vulkan debagCallback. type: DebugReport
+LOG|23:53:23|>  vulkan: 
 		object type: 28
 		message: Added callback
-LOG|21:10:21|> was triggered vulkan debagCallback. type: DebugReport
-LOG|21:10:21|>  vulkan: 
+LOG|23:53:23|> was triggered vulkan debagCallback. type: DebugReport
+LOG|23:53:23|>  vulkan: 
 		object type: 28
 		message: Added callback
-LOG|21:10:21|> was triggered vulkan debagCallback. type: DebugReport
-LOG|21:10:21|>  vulkan: 
+LOG|23:53:23|> was triggered vulkan debagCallback. type: DebugReport
+LOG|23:53:23|>  vulkan: 
 		object type: 28
 		message: Added callback
-LOG|21:10:21|> was triggered vulkan debagCallback. type: DebugReport
-LOG|21:10:21|>  vulkan: 
+LOG|23:53:23|> was triggered vulkan debagCallback. type: DebugReport
+LOG|23:53:23|>  vulkan: 
 		object type: 28
 		message: Added callback
