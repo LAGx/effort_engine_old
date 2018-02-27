@@ -5,7 +5,7 @@
 #include <memory>
 #include <glm/vec2.hpp>
 #include <vector>
-
+#include <map>
 
 using namespace std;
 
@@ -41,9 +41,9 @@ public:
     struct InstanceCreateInfo{
         string aplicationName = "effort_engine";
 #ifdef WIN_OS
-        string filename_ValidationLayerList = "resource\data\ValidationLayers.data";
+        string filename_ValidationLayerList = "resource\data\VulkanSettings.data";
 #else
-        string filename_ValidationLayerList = "resource/data/ValidationLayers.data";
+        string filename_ValidationLayerList = "resource/data/VulkanSettings.data";
 #endif
     };
 
@@ -55,7 +55,7 @@ public:
 
     ~VulkanManager();
 
-private:
+protected:
 
 
     class Window{
@@ -105,7 +105,7 @@ private:
 
             ValidationLayer(string filename_VLlist);
 
-            bool isSupport(string& error_layer);
+            bool isSupport(string& error_layer) const;
             const vector<const char*>& getLayersList();
 
             VkResult setInstanceCallback(VkInstance& instance);
@@ -148,25 +148,90 @@ private:
 
     };
 
-    class VulkanPhisicalDevice{
+
+    class VulkanPhysicalDevice{
     public:
 
-        VulkanPhisicalDevice(VulkanInstance& instance);
+        VulkanPhysicalDevice(VulkanInstance& instance);
+
+        VkPhysicalDevice& getVkPhysicalDevice();
+        
+        const vector<const char*>& getExtentions() const;
 
     private:
 
+        vector<const char*> extentions = {
+                VK_KHR_SWAPCHAIN_EXTENSION_NAME
+            };
+
+        bool isExtentionSupported() const;
+
         //TODO more complex raiting
         typedef size_t rateDevicePoints;
-        rateDevicePoints rateDevice(const VkPhysicalDevice& device);//< if return 0, then this device don`t suppurt Vulkan
+        rateDevicePoints rateDevice(const VkPhysicalDevice& device) const;//< if return 0, then this device don`t suppurt Vulkan
 
         VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
 
     };
 
-    unique_ptr<Window>                 window = nullptr;
-    unique_ptr<VulkanInstance>         instance = nullptr;
-    unique_ptr<VulkanPhisicalDevice>   phisicalDevice = nullptr;
 
+    class VulkanLogicalDevice{
+    public:
+        enum class EffQueueType{
+            EFF_GRAPHIC_QUEUE,
+            EFF_PRESENT_QUEUE
+        };
+
+        VulkanLogicalDevice(VulkanManager* _vkManager);//TODO what is device features?
+
+        ~VulkanLogicalDevice();
+
+    private:
+
+        
+
+        class QueueFamilyes{
+        public:
+
+            struct Queue{
+                size_t index = -1;
+                VkQueue queue = nullptr;
+                float priority = 1.0f;
+            };
+
+            QueueFamilyes(VulkanManager* _vkManager);
+
+            vector<VkDeviceQueueCreateInfo> queueCreateInfos(); 
+
+            Queue& operator[](const EffQueueType& type);
+
+            void getLogicalDeviceQueues(VulkanLogicalDevice& _logicalDevice);
+
+        private:
+
+
+            VulkanManager* main_vkManager;
+
+
+            map<EffQueueType, Queue> listQueue = {  {EffQueueType::EFF_GRAPHIC_QUEUE, Queue()},
+                                                    {EffQueueType::EFF_PRESENT_QUEUE, Queue()}};
+
+            void findQueueFamilies(); //set indexs
+
+
+        };
+
+        VulkanManager* main_vkManager;
+        QueueFamilyes queueFamilyes;
+        VkDevice logicalDevice;
+
+    };
+
+
+    unique_ptr<Window>                 window           = nullptr;
+    unique_ptr<VulkanInstance>         instance         = nullptr;
+    unique_ptr<VulkanPhysicalDevice>   physicalDevice   = nullptr;
+    unique_ptr<VulkanLogicalDevice>    logicalDevice    = nullptr;
 
 };
 

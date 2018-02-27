@@ -17,6 +17,8 @@ glm/vec2.hpp
 -
 vector
 -
+map
+-
 
 ../source/headers/core/scripting/Script.h
 lua.h
@@ -58,6 +60,10 @@ cstring
 memory
 -
 algorithm
+-
+map
+-
+set
 -
 
 /home/kvark/effort_project/effort_engine/source/scr/core/scripting/Script.cpp
