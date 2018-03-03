@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <map>
 #include <set>
+#include <list>
 
 using namespace eff;
 using namespace std;
@@ -15,10 +16,11 @@ VulkanManager::VulkanManager(const WindowCreateInfo& windowInfo,const InstanceCr
 
     window = move(unique_ptr<Window>(new Window(windowInfo)));
     instance = move(unique_ptr<VulkanInstance>(new VulkanInstance(instanceInfo)));
+    window->setSurface(instance->getInstance());
     physicalDevice = move(unique_ptr<VulkanPhysicalDevice>(new VulkanPhysicalDevice(*instance.get())));
     logicalDevice = move(unique_ptr<VulkanLogicalDevice>(new VulkanLogicalDevice(this)));
 
-    window->setSurface(instance->getInstance());
+
 }
 
 
@@ -142,7 +144,9 @@ VulkanManager::VulkanInstance::~VulkanInstance(){
 VulkanManager::VulkanInstance::ValidationLayer::ValidationLayer(string filename_VLlist){
     //TODO implement read Validation layer from list "ValidationLayers.data" to 
     //TODO get type of errors want to get
-    flagsCallback = VK_DEBUG_REPORT_ERROR_BIT_EXT | VK_DEBUG_REPORT_WARNING_BIT_EXT | VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT | VK_DEBUG_REPORT_ERROR_BIT_EXT | VK_DEBUG_REPORT_DEBUG_BIT_EXT;
+    //flagsCallback = VK_DEBUG_REPORT_ERROR_BIT_EXT | VK_DEBUG_REPORT_WARNING_BIT_EXT | VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT | VK_DEBUG_REPORT_ERROR_BIT_EXT | VK_DEBUG_REPORT_DEBUG_BIT_EXT;
+    flagsCallback = VK_DEBUG_REPORT_ERROR_BIT_EXT | VK_DEBUG_REPORT_WARNING_BIT_EXT | VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT;
+
 }
 
 VkResult VulkanManager::VulkanInstance::ValidationLayer::setInstanceCallback(VkInstance& instance){
@@ -398,7 +402,6 @@ void VulkanManager::VulkanLogicalDevice::QueueFamilyes::getLogicalDeviceQueues(V
         vkGetDeviceQueue(_logicalDevice.logicalDevice, el.second.index, 0, &el.second.queue);
 }
 
-
 void VulkanManager::VulkanLogicalDevice::QueueFamilyes::findQueueFamilies(){
 
     uint32_t queueFamilyCount = 0;
@@ -408,7 +411,6 @@ void VulkanManager::VulkanLogicalDevice::QueueFamilyes::findQueueFamilies(){
     vkGetPhysicalDeviceQueueFamilyProperties(main_vkManager->physicalDevice->getVkPhysicalDevice(), &queueFamilyCount, queueFamilies.data());
 
     int i = 0;
-    bool isBreak = true;
 
     for (const auto& queueFamily : queueFamilies) {
  
@@ -419,19 +421,7 @@ void VulkanManager::VulkanLogicalDevice::QueueFamilyes::findQueueFamilies(){
         vkGetPhysicalDeviceSurfaceSupportKHR(main_vkManager->physicalDevice->getVkPhysicalDevice(), i, main_vkManager->window->surface->vk_surface, &presentSupport);
 
         if (queueFamily.queueCount > 0 && presentSupport) 
-                listQueue[EffQueueType::EFF_PRESENT_QUEUE].index = i;
-
-
-        isBreak = true;
-        for(const auto& el: listQueue){
-            if(el.second.index == -1){
-                isBreak = false;
-                break;
-            }
-        }
-        
-        if(isBreak)
-            break;
+            listQueue[EffQueueType::EFF_PRESENT_QUEUE].index = i;
 
         i++;
     }
@@ -452,16 +442,27 @@ VulkanManager::VulkanLogicalDevice::~VulkanLogicalDevice(){
     vkDestroyDevice(logicalDevice, nullptr);
 }
 
+
 vector<VkDeviceQueueCreateInfo> VulkanManager::VulkanLogicalDevice::QueueFamilyes::queueCreateInfos(){
     vector<VkDeviceQueueCreateInfo> queueCreateInfos;
 
+    //get vector of queues with dirrefent indexes
+    vector<Queue> true_Queue_list;
+    vector<int> was_idexes;
 
-    for(auto& el: listQueue) {
+    for(const auto& el: listQueue)
+        if(find(was_idexes.begin(), was_idexes.end(), el.second.index) == was_idexes.end()){
+            was_idexes.push_back(el.second.index);
+            true_Queue_list.push_back(el.second);
+        }
+    
+    
+    for(auto& el: true_Queue_list) {
         VkDeviceQueueCreateInfo queueCreateInfo = {};
         queueCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
-        queueCreateInfo.queueFamilyIndex = el.second.index;
+        queueCreateInfo.queueFamilyIndex = true_Queue_list[0].index;
         queueCreateInfo.queueCount = 1;
-        queueCreateInfo.pQueuePriorities = &el.second.priority;
+        queueCreateInfo.pQueuePriorities = &true_Queue_list[0].priority;
         queueCreateInfos.push_back(queueCreateInfo);
     }
 

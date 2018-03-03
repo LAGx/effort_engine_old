@@ -177,10 +177,6 @@ protected:
 
     class VulkanLogicalDevice{
     public:
-        enum class EffQueueType{
-            EFF_GRAPHIC_QUEUE,
-            EFF_PRESENT_QUEUE
-        };
 
         VulkanLogicalDevice(VulkanManager* _vkManager);//TODO what is device features?
 
@@ -192,12 +188,22 @@ protected:
 
         class QueueFamilyes{
         public:
+            
+
+            enum EffQueueType{
+                EFF_GRAPHIC_QUEUE = 0,
+                EFF_PRESENT_QUEUE
+            };
+
 
             struct Queue{
-                size_t index = -1;
+                //Queue(const Queue& q);
+                
+                int index = -1;
                 VkQueue queue = nullptr;
                 float priority = 1.0f;
             };
+
 
             QueueFamilyes(VulkanManager* _vkManager);
 
@@ -213,8 +219,8 @@ protected:
             VulkanManager* main_vkManager;
 
 
-            map<EffQueueType, Queue> listQueue = {  {EffQueueType::EFF_GRAPHIC_QUEUE, Queue()},
-                                                    {EffQueueType::EFF_PRESENT_QUEUE, Queue()}};
+            map<EffQueueType, Queue> listQueue = {  {EFF_GRAPHIC_QUEUE, Queue()},
+                                                    {EFF_PRESENT_QUEUE, Queue()}};
 
             void findQueueFamilies(); //set indexs
 
