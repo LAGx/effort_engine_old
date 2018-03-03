@@ -85,6 +85,6 @@ void Log::clear(){
 
 Log::Exception::Exception(const string& error_text, bool show_time){ 
     string last_filename = log_ptr->current_log_file_name;
-    Log::WriteTo("error.txt").error(error_text, show_time);
+    Log::WriteTo("error.log").error(error_text, show_time);
     Log::WriteTo(last_filename).warning("error was catch: " + error_text, true);
 }
