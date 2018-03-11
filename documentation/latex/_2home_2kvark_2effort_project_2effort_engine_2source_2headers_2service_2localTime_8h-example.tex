@@ -1,0 +1,39 @@
+\hypertarget{_2home_2kvark_2effort_project_2effort_engine_2source_2headers_2service_2localTime_8h-example}{}\section{/home/kvark/effort\+\_\+project/effort\+\_\+engine/source/headers/service/local\+Time.\+h}
+functor, that return time of local machine \begin{DoxyWarning}{Warning}
+low performance.
+\end{DoxyWarning}
+Local\+Time loct; loct(\+Time\+Type\+::\+Year); //will return 2018
+
+
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{\#include <string>}
+\textcolor{preprocessor}{\#include <ctime>}
+
+\textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceeff}{eff}}\{
+
+\textcolor{keyword}{class }LocalTime\{
+\textcolor{keyword}{public}:
+
+    \textcolor{keyword}{enum class} TimeType\{
+        Second = 0, \textcolor{comment}{//< seconds [0, 60]}
+        Minute,     \textcolor{comment}{//< minutes [0, 59]}
+        Hour,       \textcolor{comment}{//< hours   [0, 23]}
+        Day,        \textcolor{comment}{//< days    [1, 31]}
+        Month,      \textcolor{comment}{//< month   [1, 12]          }
+        Year        \textcolor{comment}{//< year    [in xxxx format] }
+    \};
+
+    std::string \mbox{\hyperlink{classeff_1_1LocalTime_a602662475583a2d6490a13edb2e5e1cc}{operator()}}(LocalTime::TimeType timeType);
+
+\textcolor{keyword}{private}:
+
+    std::time\_t rawtime;
+    std::tm* timeinfo;
+
+\};
+
+
+
+\};
+\end{DoxyCodeInclude}
+ 

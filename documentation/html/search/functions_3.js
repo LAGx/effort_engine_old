@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['warning',['warning',['../classeff_1_1Log.html#a8d73934e2238241da184f9e4a5ed2a11',1,'eff::Log']]],
-  ['writeto',['WriteTo',['../classeff_1_1Log.html#a2572f93cadda0f68d2918f98535c1a99',1,'eff::Log']]]
+  ['warning',['warning',['../classeff_1_1Log.html#a7c3e86bcd7ab4b9370b148b2ae6b63eb',1,'eff::Log']]],
+  ['writeto',['WriteTo',['../classeff_1_1Log.html#a58f5fc147f23b8a1a5b6c3eba70e8dcc',1,'eff::Log']]]
 ];

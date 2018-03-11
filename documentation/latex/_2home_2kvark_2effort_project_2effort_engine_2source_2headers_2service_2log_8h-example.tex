@@ -1,0 +1,62 @@
+\hypertarget{_2home_2kvark_2effort_project_2effort_engine_2source_2headers_2service_2log_8h-example}{}\section{/home/kvark/effort\+\_\+project/effort\+\_\+engine/source/headers/service/log.\+h}
+class for singlethread logging in file
+
+Log\+::\+Write\+To().warning(\char`\"{}hello world\char`\"{}, true); //will write warning to the last or defoult file Log\+::\+Write\+To(\char`\"{}texas.\+txt\char`\"{}).log(\char`\"{}\+M\+A\+U M\+A\+U!!\char`\"{}); //will write log \char`\"{}\+M\+A\+U M\+A\+U!!\char`\"{} without time in file (prefix\+\_\+namefile+\char`\"{}texas.\+txt\char`\"{}). And set this file as default 
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & -\/\+File can not be open. it\`{}s impossible to write log.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{\#pragma once}
+\textcolor{preprocessor}{\#include <string>}
+\textcolor{preprocessor}{\#include <memory>}
+\textcolor{preprocessor}{\#include <fstream>}
+\textcolor{preprocessor}{\#include "localTime.h"}
+
+\textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceeff}{eff}}\{
+
+\textcolor{keyword}{class }Log\{
+\textcolor{keyword}{public}:
+
+    \textcolor{keyword}{static} Log\& \mbox{\hyperlink{classeff_1_1Log_a58f5fc147f23b8a1a5b6c3eba70e8dcc}{WriteTo}}(std::string log\_filename = \textcolor{stringliteral}{""});
+
+
+    \textcolor{keywordtype}{void} \mbox{\hyperlink{classeff_1_1Log_a8e90a7d29ec8b65186d009b9b883b774}{log}}(\textcolor{keyword}{const} std::string\& log\_text, \textcolor{keywordtype}{bool} show\_time = \textcolor{keyword}{false});
+
+
+    \textcolor{keywordtype}{void} \mbox{\hyperlink{classeff_1_1Log_a7c3e86bcd7ab4b9370b148b2ae6b63eb}{warning}}(\textcolor{keyword}{const} std::string\& warning\_text, \textcolor{keywordtype}{bool} show\_time = \textcolor{keyword}{false});
+
+
+    \textcolor{keywordtype}{void} \mbox{\hyperlink{classeff_1_1Log_a5a50ce8ed135a05f9054932cffc959d0}{clear}}();
+
+
+    ~Log();
+
+    \textcolor{keyword}{class }Exception\{
+    \textcolor{keyword}{public}:
+        Exception(\textcolor{keyword}{const} std::string\& error, \textcolor{keywordtype}{bool} show\_time = \textcolor{keyword}{false});
+    \};
+
+\textcolor{keyword}{private}:
+
+\textcolor{preprocessor}{\#ifdef WIN\_OS}
+    std::string prefix\_namefile = \textcolor{stringliteral}{"logs\(\backslash\)\(\backslash\)"};
+\textcolor{preprocessor}{\#else  //LINUX\_OS or MAC\_OS}
+    std::string prefix\_namefile = \textcolor{stringliteral}{"logs/"};
+\textcolor{preprocessor}{\#endif}
+
+    Log(); 
+
+    \textcolor{keywordtype}{void} error(\textcolor{keyword}{const} std::string\& error\_text, \textcolor{keywordtype}{bool} show\_time = \textcolor{keyword}{false});
+
+    \textcolor{keyword}{static} std::unique\_ptr<Log> log\_ptr;    \textcolor{comment}{//< ptr of class}
+    std::string current\_log\_file\_name = \textcolor{stringliteral}{""}; \textcolor{comment}{//< name of last file}
+    std::ofstream file\_toWrite;             \textcolor{comment}{//< object for writing in file}
+    \mbox{\hyperlink{classeff_1_1LocalTime}{eff::LocalTime}} localTime;               \textcolor{comment}{//< local time variable}
+\};
+
+
+\};
+\end{DoxyCodeInclude}
+ 

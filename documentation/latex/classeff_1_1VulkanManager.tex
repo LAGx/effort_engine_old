@@ -1,0 +1,81 @@
+\hypertarget{classeff_1_1VulkanManager}{}\section{eff\+:\+:Vulkan\+Manager Class Reference}
+\label{classeff_1_1VulkanManager}\index{eff\+::\+Vulkan\+Manager@{eff\+::\+Vulkan\+Manager}}
+
+
+tool for high level control vulkan  
+
+
+
+
+{\ttfamily \#include $<$vulkan\+\_\+manager.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structeff_1_1VulkanManager_1_1InstanceCreateInfo}{Instance\+Create\+Info}}
+\begin{DoxyCompactList}\small\item\em create instance struct \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classeff_1_1VulkanManager_1_1VulkanInstance}{Vulkan\+Instance}}
+\item 
+class \mbox{\hyperlink{classeff_1_1VulkanManager_1_1VulkanLogicalDevice}{Vulkan\+Logical\+Device}}
+\item 
+class \mbox{\hyperlink{classeff_1_1VulkanManager_1_1VulkanPhysicalDevice}{Vulkan\+Physical\+Device}}
+\item 
+class \mbox{\hyperlink{classeff_1_1VulkanManager_1_1Window}{Window}}
+\item 
+struct \mbox{\hyperlink{structeff_1_1VulkanManager_1_1WindowCreateInfo}{Window\+Create\+Info}}
+\begin{DoxyCompactList}\small\item\em create window struct \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classeff_1_1VulkanManager_a144f9fe8cdc4fc610cde5d164e13df62}\label{classeff_1_1VulkanManager_a144f9fe8cdc4fc610cde5d164e13df62}} 
+typedef \mbox{\hyperlink{structeff_1_1eff__low_1_1Window_1_1CreateInfo}{eff\+\_\+low\+::\+Window\+::\+Create\+Info}} {\bfseries Window\+Create\+Info}
+\item 
+\mbox{\Hypertarget{classeff_1_1VulkanManager_a2c3476ea07d335145411729160fefa11}\label{classeff_1_1VulkanManager_a2c3476ea07d335145411729160fefa11}} 
+typedef \mbox{\hyperlink{structeff_1_1eff__low_1_1Instance_1_1CreateInfo}{eff\+\_\+low\+::\+Instance\+::\+Create\+Info}} {\bfseries Instance\+Create\+Info}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classeff_1_1VulkanManager_a08aa2d0d8d09af48179903772da42c63}\label{classeff_1_1VulkanManager_a08aa2d0d8d09af48179903772da42c63}} 
+{\bfseries Vulkan\+Manager} (const \mbox{\hyperlink{structeff_1_1VulkanManager_1_1WindowCreateInfo}{Window\+Create\+Info}} \&window\+Info, const \mbox{\hyperlink{structeff_1_1VulkanManager_1_1InstanceCreateInfo}{Instance\+Create\+Info}} \&instance\+Info)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classeff_1_1VulkanManager_a7a9011b6b689cc8843c156992dbac3f3}\label{classeff_1_1VulkanManager_a7a9011b6b689cc8843c156992dbac3f3}} 
+unique\+\_\+ptr$<$ \mbox{\hyperlink{classeff_1_1VulkanManager_1_1Window}{Window}} $>$ {\bfseries window} = nullptr
+\item 
+\mbox{\Hypertarget{classeff_1_1VulkanManager_a6b0c5603c630ede57b9dc34242be403e}\label{classeff_1_1VulkanManager_a6b0c5603c630ede57b9dc34242be403e}} 
+unique\+\_\+ptr$<$ Instance $>$ {\bfseries instance} = nullptr
+\item 
+\mbox{\Hypertarget{classeff_1_1VulkanManager_a1967c69fc6f66993cf0744d5f53da3f8}\label{classeff_1_1VulkanManager_a1967c69fc6f66993cf0744d5f53da3f8}} 
+unique\+\_\+ptr$<$ Physical\+Device $>$ {\bfseries physical\+Device} = nullptr
+\item 
+\mbox{\Hypertarget{classeff_1_1VulkanManager_a3bb5a18e549d276fa0b057eac9f0cd2c}\label{classeff_1_1VulkanManager_a3bb5a18e549d276fa0b057eac9f0cd2c}} 
+unique\+\_\+ptr$<$ Logical\+Device $>$ {\bfseries logical\+Device} = nullptr
+\item 
+\mbox{\Hypertarget{classeff_1_1VulkanManager_ae5c477fd0f8dd6f512502865a5a1785a}\label{classeff_1_1VulkanManager_ae5c477fd0f8dd6f512502865a5a1785a}} 
+unique\+\_\+ptr$<$ \mbox{\hyperlink{classeff_1_1VulkanManager_1_1VulkanInstance}{Vulkan\+Instance}} $>$ {\bfseries instance} = nullptr
+\item 
+\mbox{\Hypertarget{classeff_1_1VulkanManager_aa0e7431723f6c1eaf93eec8b38ca12b1}\label{classeff_1_1VulkanManager_aa0e7431723f6c1eaf93eec8b38ca12b1}} 
+unique\+\_\+ptr$<$ \mbox{\hyperlink{classeff_1_1VulkanManager_1_1VulkanPhysicalDevice}{Vulkan\+Physical\+Device}} $>$ {\bfseries physical\+Device} = nullptr
+\item 
+\mbox{\Hypertarget{classeff_1_1VulkanManager_ad4f2af718ddaa3abd40639528871a2ce}\label{classeff_1_1VulkanManager_ad4f2af718ddaa3abd40639528871a2ce}} 
+unique\+\_\+ptr$<$ \mbox{\hyperlink{classeff_1_1VulkanManager_1_1VulkanLogicalDevice}{Vulkan\+Logical\+Device}} $>$ {\bfseries logical\+Device} = nullptr
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+tool for high level control vulkan 
+
+\begin{DoxyWarning}{Warning}
+it\`{}s have to be only onc object 
+
+object is very havy 
+\end{DoxyWarning}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/headers/core/graphic/vulkan\+\_\+manager.\+h\item 
+source/headers/core/graphic/vulkan\+\_\+manager\+\_\+old.\+h\end{DoxyCompactItemize}

@@ -123,6 +123,60 @@ effort_engine/fast:
 	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/build
 .PHONY : effort_engine/fast
 
+source/scr/core/graphic/glfw_low_tools.o: source/scr/core/graphic/glfw_low_tools.cpp.o
+
+.PHONY : source/scr/core/graphic/glfw_low_tools.o
+
+# target to build an object file
+source/scr/core/graphic/glfw_low_tools.cpp.o:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/glfw_low_tools.cpp.o
+.PHONY : source/scr/core/graphic/glfw_low_tools.cpp.o
+
+source/scr/core/graphic/glfw_low_tools.i: source/scr/core/graphic/glfw_low_tools.cpp.i
+
+.PHONY : source/scr/core/graphic/glfw_low_tools.i
+
+# target to preprocess a source file
+source/scr/core/graphic/glfw_low_tools.cpp.i:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/glfw_low_tools.cpp.i
+.PHONY : source/scr/core/graphic/glfw_low_tools.cpp.i
+
+source/scr/core/graphic/glfw_low_tools.s: source/scr/core/graphic/glfw_low_tools.cpp.s
+
+.PHONY : source/scr/core/graphic/glfw_low_tools.s
+
+# target to generate assembly for a file
+source/scr/core/graphic/glfw_low_tools.cpp.s:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/glfw_low_tools.cpp.s
+.PHONY : source/scr/core/graphic/glfw_low_tools.cpp.s
+
+source/scr/core/graphic/vulkan_low_tools.o: source/scr/core/graphic/vulkan_low_tools.cpp.o
+
+.PHONY : source/scr/core/graphic/vulkan_low_tools.o
+
+# target to build an object file
+source/scr/core/graphic/vulkan_low_tools.cpp.o:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_low_tools.cpp.o
+.PHONY : source/scr/core/graphic/vulkan_low_tools.cpp.o
+
+source/scr/core/graphic/vulkan_low_tools.i: source/scr/core/graphic/vulkan_low_tools.cpp.i
+
+.PHONY : source/scr/core/graphic/vulkan_low_tools.i
+
+# target to preprocess a source file
+source/scr/core/graphic/vulkan_low_tools.cpp.i:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_low_tools.cpp.i
+.PHONY : source/scr/core/graphic/vulkan_low_tools.cpp.i
+
+source/scr/core/graphic/vulkan_low_tools.s: source/scr/core/graphic/vulkan_low_tools.cpp.s
+
+.PHONY : source/scr/core/graphic/vulkan_low_tools.s
+
+# target to generate assembly for a file
+source/scr/core/graphic/vulkan_low_tools.cpp.s:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_low_tools.cpp.s
+.PHONY : source/scr/core/graphic/vulkan_low_tools.cpp.s
+
 source/scr/core/graphic/vulkan_manager.o: source/scr/core/graphic/vulkan_manager.cpp.o
 
 .PHONY : source/scr/core/graphic/vulkan_manager.o
@@ -149,6 +203,33 @@ source/scr/core/graphic/vulkan_manager.s: source/scr/core/graphic/vulkan_manager
 source/scr/core/graphic/vulkan_manager.cpp.s:
 	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.s
 .PHONY : source/scr/core/graphic/vulkan_manager.cpp.s
+
+source/scr/core/graphic/vulkan_manager_old.o: source/scr/core/graphic/vulkan_manager_old.cpp.o
+
+.PHONY : source/scr/core/graphic/vulkan_manager_old.o
+
+# target to build an object file
+source/scr/core/graphic/vulkan_manager_old.cpp.o:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager_old.cpp.o
+.PHONY : source/scr/core/graphic/vulkan_manager_old.cpp.o
+
+source/scr/core/graphic/vulkan_manager_old.i: source/scr/core/graphic/vulkan_manager_old.cpp.i
+
+.PHONY : source/scr/core/graphic/vulkan_manager_old.i
+
+# target to preprocess a source file
+source/scr/core/graphic/vulkan_manager_old.cpp.i:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager_old.cpp.i
+.PHONY : source/scr/core/graphic/vulkan_manager_old.cpp.i
+
+source/scr/core/graphic/vulkan_manager_old.s: source/scr/core/graphic/vulkan_manager_old.cpp.s
+
+.PHONY : source/scr/core/graphic/vulkan_manager_old.s
+
+# target to generate assembly for a file
+source/scr/core/graphic/vulkan_manager_old.cpp.s:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager_old.cpp.s
+.PHONY : source/scr/core/graphic/vulkan_manager_old.cpp.s
 
 source/scr/core/scripting/Script.o: source/scr/core/scripting/Script.cpp.o
 
@@ -267,9 +348,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... effort_engine"
+	@echo "... source/scr/core/graphic/glfw_low_tools.o"
+	@echo "... source/scr/core/graphic/glfw_low_tools.i"
+	@echo "... source/scr/core/graphic/glfw_low_tools.s"
+	@echo "... source/scr/core/graphic/vulkan_low_tools.o"
+	@echo "... source/scr/core/graphic/vulkan_low_tools.i"
+	@echo "... source/scr/core/graphic/vulkan_low_tools.s"
 	@echo "... source/scr/core/graphic/vulkan_manager.o"
 	@echo "... source/scr/core/graphic/vulkan_manager.i"
 	@echo "... source/scr/core/graphic/vulkan_manager.s"
+	@echo "... source/scr/core/graphic/vulkan_manager_old.o"
+	@echo "... source/scr/core/graphic/vulkan_manager_old.i"
+	@echo "... source/scr/core/graphic/vulkan_manager_old.s"
 	@echo "... source/scr/core/scripting/Script.o"
 	@echo "... source/scr/core/scripting/Script.i"
 	@echo "... source/scr/core/scripting/Script.s"
