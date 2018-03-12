@@ -13,4 +13,10 @@ VulkanManager::VulkanManager(const WindowCreateInfo& windowCreateInfo, const Ins
     window = move(unique_ptr<Window>(new Window(windowCreateInfo)));
     instance = move(unique_ptr<Instance>(new Instance(instanceCreateInfo)));
     window->setSurfaceInstance(instance->getInstance());
+    
+}
+
+
+VulkanManager::~VulkanManager(){
+
 }

@@ -24,8 +24,17 @@ Surface::~Surface(){
     vkDestroySurfaceKHR(parentInstance, surface, nullptr);
 }
 
+//              VALIDATION LAYERS
 
+ValidationLayers::ValidationLayers(JsonSettings_FileName validationLayersFile, VkInstance &instance):parentInstance(instance){
+    
+}
 
+ValidationLayers::ValidationLayers(){
+    auto _vkDestroyDebugReportCallbackEXT = (PFN_vkDestroyDebugReportCallbackEXT) vkGetInstanceProcAddr(instance, "vkDestroyDebugReportCallbackEXT");
+    if (_vkDestroyDebugReportCallbackEXT != nullptr)
+        _vkDestroyDebugReportCallbackEXT(instance, callback, nullptr);
+}
 
 //              INSTANCE
 

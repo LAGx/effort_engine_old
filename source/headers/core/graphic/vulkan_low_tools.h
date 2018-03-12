@@ -42,16 +42,25 @@ protected:
 
 
 
+/*!
+    @breif class of surface
+    @warning instance must exist while class exist for correct deleting layers
+*/
 class ValidationLayers{
 public:
 
     /*!
-        @warning json file have to include 
+        @warning json file have to include:
         "isValidationLayersOn": true,
-        "validationLayers": []
-
+        "validationLayers": [],
+        "flagsCallback":[]     <-- there can be ["VK_DEBUG_REPORT_ERROR_BIT_EXT", 
+                                                 "VK_DEBUG_REPORT_WARNING_BIT_EXT", 
+                                                 "VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT", 
+                                                 "VK_DEBUG_REPORT_ERROR_BIT_EXT", 
+                                                 "VK_DEBUG_REPORT_DEBUG_BIT_EXT"]
+    
     */
-    ValidationLayers(JsonSettings_FileName validationLayersFile);
+    ValidationLayers(JsonSettings_FileName validationLayersFile, VkInstance &instance);
 
     bool isSupport(string &error_layer) const;
     const vector<const char *> &getLayersList();
@@ -59,7 +68,11 @@ public:
     VkResult setInstanceCallback(VkInstance &instance);
     void deleteInstanceCallback(VkInstance &instance);
 
+    ~ValidationLayers();
+
 private:
+
+    VkInstance &parentInstance;
 
     static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
         VkDebugReportFlagsEXT flags,
