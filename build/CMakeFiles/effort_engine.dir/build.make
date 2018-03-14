@@ -135,9 +135,22 @@ CMakeFiles/effort_engine.dir/source/scr/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/effort_engine.dir/source/scr/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kvark/effort_project/effort_engine/source/scr/main.cpp -o CMakeFiles/effort_engine.dir/source/scr/main.cpp.s
 
+CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.o: CMakeFiles/effort_engine.dir/flags.make
+CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.o: ../source/scr/service/fileServing.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kvark/effort_project/effort_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.o -c /home/kvark/effort_project/effort_engine/source/scr/service/fileServing.cpp
+
+CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kvark/effort_project/effort_engine/source/scr/service/fileServing.cpp > CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.i
+
+CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kvark/effort_project/effort_engine/source/scr/service/fileServing.cpp -o CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.s
+
 CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.o: CMakeFiles/effort_engine.dir/flags.make
 CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.o: ../source/scr/service/localTime.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kvark/effort_project/effort_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kvark/effort_project/effort_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.o -c /home/kvark/effort_project/effort_engine/source/scr/service/localTime.cpp
 
 CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.i: cmake_force
@@ -150,7 +163,7 @@ CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.s: cmake_force
 
 CMakeFiles/effort_engine.dir/source/scr/service/log.cpp.o: CMakeFiles/effort_engine.dir/flags.make
 CMakeFiles/effort_engine.dir/source/scr/service/log.cpp.o: ../source/scr/service/log.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kvark/effort_project/effort_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/effort_engine.dir/source/scr/service/log.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kvark/effort_project/effort_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/effort_engine.dir/source/scr/service/log.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/effort_engine.dir/source/scr/service/log.cpp.o -c /home/kvark/effort_project/effort_engine/source/scr/service/log.cpp
 
 CMakeFiles/effort_engine.dir/source/scr/service/log.cpp.i: cmake_force
@@ -169,6 +182,7 @@ effort_engine_OBJECTS = \
 "CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager_old.cpp.o" \
 "CMakeFiles/effort_engine.dir/source/scr/core/scripting/Script.cpp.o" \
 "CMakeFiles/effort_engine.dir/source/scr/main.cpp.o" \
+"CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.o" \
 "CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.o" \
 "CMakeFiles/effort_engine.dir/source/scr/service/log.cpp.o"
 
@@ -181,6 +195,7 @@ effort_engine: CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manag
 effort_engine: CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager_old.cpp.o
 effort_engine: CMakeFiles/effort_engine.dir/source/scr/core/scripting/Script.cpp.o
 effort_engine: CMakeFiles/effort_engine.dir/source/scr/main.cpp.o
+effort_engine: CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.o
 effort_engine: CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.o
 effort_engine: CMakeFiles/effort_engine.dir/source/scr/service/log.cpp.o
 effort_engine: CMakeFiles/effort_engine.dir/build.make
@@ -198,7 +213,7 @@ effort_engine: /usr/lib/x86_64-linux-gnu/librt.so
 effort_engine: /usr/lib/x86_64-linux-gnu/libm.so
 effort_engine: /usr/lib/x86_64-linux-gnu/libX11.so
 effort_engine: CMakeFiles/effort_engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kvark/effort_project/effort_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable effort_engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kvark/effort_project/effort_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable effort_engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/effort_engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

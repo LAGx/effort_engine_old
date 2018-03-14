@@ -3,6 +3,8 @@
 
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/glfw_low_tools.cpp.o: ../source/headers/core/graphic/glfw_low_tools.h
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/glfw_low_tools.cpp.o: ../source/headers/core/graphic/vulkan_low_tools.h
+CMakeFiles/effort_engine.dir/source/scr/core/graphic/glfw_low_tools.cpp.o: ../source/headers/service/fileServing.h
+CMakeFiles/effort_engine.dir/source/scr/core/graphic/glfw_low_tools.cpp.o: ../source/headers/service/json.hpp
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/glfw_low_tools.cpp.o: ../source/scr/core/graphic/glfw_low_tools.cpp
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/glfw_low_tools.cpp.o: /home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/include/vulkan/vk_platform.h
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/glfw_low_tools.cpp.o: /home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/include/vulkan/vulkan.h
@@ -10,6 +12,8 @@ CMakeFiles/effort_engine.dir/source/scr/core/graphic/glfw_low_tools.cpp.o: /usr/
 
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_low_tools.cpp.o: ../source/headers/core/graphic/glfw_low_tools.h
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_low_tools.cpp.o: ../source/headers/core/graphic/vulkan_low_tools.h
+CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_low_tools.cpp.o: ../source/headers/service/fileServing.h
+CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_low_tools.cpp.o: ../source/headers/service/json.hpp
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_low_tools.cpp.o: ../source/headers/service/localTime.h
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_low_tools.cpp.o: ../source/headers/service/log.h
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_low_tools.cpp.o: ../source/scr/core/graphic/vulkan_low_tools.cpp
@@ -20,6 +24,8 @@ CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_low_tools.cpp.o: /us
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.o: ../source/headers/core/graphic/glfw_low_tools.h
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.o: ../source/headers/core/graphic/vulkan_low_tools.h
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.o: ../source/headers/core/graphic/vulkan_manager.h
+CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.o: ../source/headers/service/fileServing.h
+CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.o: ../source/headers/service/json.hpp
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.o: ../source/scr/core/graphic/vulkan_manager.cpp
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.o: /home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/include/vulkan/vk_platform.h
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.o: /home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/include/vulkan/vulkan.h
@@ -43,12 +49,20 @@ CMakeFiles/effort_engine.dir/source/scr/core/scripting/Script.cpp.o: /usr/local/
 CMakeFiles/effort_engine.dir/source/scr/main.cpp.o: ../source/headers/core/graphic/glfw_low_tools.h
 CMakeFiles/effort_engine.dir/source/scr/main.cpp.o: ../source/headers/core/graphic/vulkan_low_tools.h
 CMakeFiles/effort_engine.dir/source/scr/main.cpp.o: ../source/headers/core/graphic/vulkan_manager.h
+CMakeFiles/effort_engine.dir/source/scr/main.cpp.o: ../source/headers/service/fileServing.h
+CMakeFiles/effort_engine.dir/source/scr/main.cpp.o: ../source/headers/service/json.hpp
 CMakeFiles/effort_engine.dir/source/scr/main.cpp.o: ../source/headers/service/localTime.h
 CMakeFiles/effort_engine.dir/source/scr/main.cpp.o: ../source/headers/service/log.h
 CMakeFiles/effort_engine.dir/source/scr/main.cpp.o: ../source/scr/main.cpp
 CMakeFiles/effort_engine.dir/source/scr/main.cpp.o: /home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/include/vulkan/vk_platform.h
 CMakeFiles/effort_engine.dir/source/scr/main.cpp.o: /home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/include/vulkan/vulkan.h
 CMakeFiles/effort_engine.dir/source/scr/main.cpp.o: /usr/local/include/GLFW/glfw3.h
+
+CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.o: ../source/headers/service/fileServing.h
+CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.o: ../source/headers/service/json.hpp
+CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.o: ../source/headers/service/localTime.h
+CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.o: ../source/headers/service/log.h
+CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.o: ../source/scr/service/fileServing.cpp
 
 CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.o: ../source/headers/service/localTime.h
 CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.o: ../source/scr/service/localTime.cpp

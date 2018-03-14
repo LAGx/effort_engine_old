@@ -4,7 +4,7 @@
 #include <GLFW/glfw3.h>
 #include <string>
 #include <vector>
-#include "service/fileName.h"
+#include "service/fileServing.h"
 
 using namespace std;
 
@@ -60,17 +60,18 @@ public:
                                                  "VK_DEBUG_REPORT_DEBUG_BIT_EXT"]
     
     */
-    ValidationLayers(JsonSettings_FileName validationLayersFile, VkInstance &instance);
+    ValidationLayers(VkInstance &instance, const JsonSettings_SafeFileName& validationLayersFile = "resource/data/VulkanValidationLayers.json");
 
     bool isSupport(string &error_layer) const;
     const vector<const char *> &getLayersList();
 
-    VkResult setInstanceCallback(VkInstance &instance);
-    void deleteInstanceCallback(VkInstance &instance);
+    bool isHaveToExit();
 
     ~ValidationLayers();
 
 private:
+
+    bool isHaveToExist_ = true;
 
     VkInstance &parentInstance;
 
@@ -86,7 +87,7 @@ private:
     );
 
     vector<const char *> validationLayersList = {
-        "VK_LAYER_LUNARG_standard_validation" //TODO fill vector only with constructor
+      //  "VK_LAYER_LUNARG_standard_validation" //TODO fill vector only with constructor
     };
 
 
@@ -115,11 +116,11 @@ public:
     */
     struct CreateInfo{
         string aplicationName = "effort_engine";
-        //        #ifdef WIN_OS
-        //        string filename_ValidationLayerList = "resource\data\VulkanSettings.data";
-        //        #else
-        //        string filename_ValidationLayerList = "resource/data/VulkanSettings.data";
-        //        #endif
+ #ifdef WIN_OS
+        JsonSettings_SafeFileName filename_ValidationLayerList = "resource\data\VulkanValidationLayers.json";
+ #else
+        JsonSettings_SafeFileName filename_ValidationLayerList = "resource/data/VulkanValidationLayers.json";
+ #endif
     };
 
     Instance(const CreateInfo &CreateInfo);
@@ -133,6 +134,7 @@ protected:
     VkInstance instance;
     unique_ptr<ValidationLayers> validation_layer = nullptr;
 
+    vector<const char*> getRequiredExtensions();
 };
 
 

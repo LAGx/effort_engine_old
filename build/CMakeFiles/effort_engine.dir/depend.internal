@@ -4,6 +4,8 @@
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/glfw_low_tools.cpp.o
  ../source/headers/core/graphic/glfw_low_tools.h
  ../source/headers/core/graphic/vulkan_low_tools.h
+ ../source/headers/service/fileServing.h
+ ../source/headers/service/json.hpp
  /home/kvark/effort_project/effort_engine/source/scr/core/graphic/glfw_low_tools.cpp
  /home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/include/vulkan/vk_platform.h
  /home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/include/vulkan/vulkan.h
@@ -11,6 +13,8 @@ CMakeFiles/effort_engine.dir/source/scr/core/graphic/glfw_low_tools.cpp.o
 CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_low_tools.cpp.o
  ../source/headers/core/graphic/glfw_low_tools.h
  ../source/headers/core/graphic/vulkan_low_tools.h
+ ../source/headers/service/fileServing.h
+ ../source/headers/service/json.hpp
  ../source/headers/service/localTime.h
  ../source/headers/service/log.h
  /home/kvark/effort_project/effort_engine/source/scr/core/graphic/vulkan_low_tools.cpp
@@ -21,6 +25,8 @@ CMakeFiles/effort_engine.dir/source/scr/core/graphic/vulkan_manager.cpp.o
  ../source/headers/core/graphic/glfw_low_tools.h
  ../source/headers/core/graphic/vulkan_low_tools.h
  ../source/headers/core/graphic/vulkan_manager.h
+ ../source/headers/service/fileServing.h
+ ../source/headers/service/json.hpp
  /home/kvark/effort_project/effort_engine/source/scr/core/graphic/vulkan_manager.cpp
  /home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/include/vulkan/vk_platform.h
  /home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/include/vulkan/vulkan.h
@@ -44,12 +50,20 @@ CMakeFiles/effort_engine.dir/source/scr/main.cpp.o
  ../source/headers/core/graphic/glfw_low_tools.h
  ../source/headers/core/graphic/vulkan_low_tools.h
  ../source/headers/core/graphic/vulkan_manager.h
+ ../source/headers/service/fileServing.h
+ ../source/headers/service/json.hpp
  ../source/headers/service/localTime.h
  ../source/headers/service/log.h
  /home/kvark/effort_project/effort_engine/source/scr/main.cpp
  /home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/include/vulkan/vk_platform.h
  /home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/include/vulkan/vulkan.h
  /usr/local/include/GLFW/glfw3.h
+CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.o
+ ../source/headers/service/fileServing.h
+ ../source/headers/service/json.hpp
+ ../source/headers/service/localTime.h
+ ../source/headers/service/log.h
+ /home/kvark/effort_project/effort_engine/source/scr/service/fileServing.cpp
 CMakeFiles/effort_engine.dir/source/scr/service/localTime.cpp.o
  ../source/headers/service/localTime.h
  /home/kvark/effort_project/effort_engine/source/scr/service/localTime.cpp

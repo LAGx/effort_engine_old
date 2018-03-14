@@ -24,7 +24,7 @@ public:
 
     VulkanManager(const WindowCreateInfo& windowCreateInfo, const InstanceCreateInfo& instanceCreateInfo);
 
-    ~VulkanManager()
+    ~VulkanManager();
 
 protected:
 

@@ -22,6 +22,7 @@ typedef string FileName;
 */ 
 class SafeFileName:public FileName{
 public:
+    SafeFileName(const char* fileName);
     SafeFileName(const string& fileName);
     operator FileName();
 };
@@ -34,6 +35,7 @@ public:
 */
 class CreateFileName: public FileName{
 public:
+    CreateFileName(const char* fileName);
     CreateFileName(const string& fileName);
     operator FileName();
 };
@@ -83,7 +85,7 @@ class JsonFile_safe{
     @warning can be unsafe
 */
 class JsonFile_fast{
-
+public:
     /// download json file into json 
     static json getFile(const Json_FileName&);
     

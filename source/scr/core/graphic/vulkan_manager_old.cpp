@@ -7,7 +7,7 @@
 #include <set>
 #include <list>
 
-using namespace eff;
+using namespace eff_old;
 using namespace std;
 
 
@@ -79,7 +79,7 @@ VulkanManager::Window::~Window(){
 
 VulkanManager::Window::Surface::Surface(VkInstance& instance, Window& window):parentInstance(instance){
     if (glfwCreateWindowSurface(instance, window.g_window, nullptr, &vk_surface) != VK_SUCCESS)
-            throw Log::Exception("failed to create window surface! window name: " + window.info.name, true);
+            throw eff::Log::Exception("failed to create window surface! window name: " + window.info.name, true);
 }
 
 
@@ -99,9 +99,9 @@ VulkanManager::VulkanInstance::VulkanInstance(const InstanceCreateInfo& instance
         if(validation_layer != nullptr){
             string error_layer = "none";
             if(!validation_layer->isSupport(error_layer))
-                throw Log::Exception("validation layer not avaiable: " + error_layer, true);
+                throw eff::Log::Exception("validation layer not avaiable: " + error_layer, true);
             else
-                Log::WriteTo().log(" Validation layers was pluged");
+                eff::Log::WriteTo().log(" Validation layers was pluged");
         }
 
         VkApplicationInfo appInfo = {};
@@ -245,7 +245,7 @@ VKAPI_ATTR VkBool32 VKAPI_CALL VulkanManager::VulkanInstance::ValidationLayer::d
     const char* msg,
     void* userData)
 {
-    Log::WriteTo("log.log").log("was triggered vulkan debagCallback. type: " + string(layerPrefix),true);
+    eff::Log::WriteTo("log.log").log("was triggered vulkan debagCallback. type: " + string(layerPrefix),true);
 
     auto getInfo = [&]()->string{
         string info = "";
@@ -256,22 +256,22 @@ VKAPI_ATTR VkBool32 VKAPI_CALL VulkanManager::VulkanInstance::ValidationLayer::d
 
     switch(flags){
         case VK_DEBUG_REPORT_INFORMATION_BIT_EXT:
-            Log::WriteTo().log(" vulkan: \n" + getInfo(), true);
+            eff::Log::WriteTo().log(" vulkan: \n" + getInfo(), true);
             break;
         case VK_DEBUG_REPORT_WARNING_BIT_EXT:
-            Log::WriteTo().warning(" vulkan: \n" + getInfo(),true);
+            eff::Log::WriteTo().warning(" vulkan: \n" + getInfo(),true);
             break;
         case VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT:
-            Log::WriteTo().warning(" vulkan: non optimal use.\n" + getInfo(),true);
+            eff::Log::WriteTo().warning(" vulkan: non optimal use.\n" + getInfo(),true);
             break;
         case VK_DEBUG_REPORT_ERROR_BIT_EXT:
-            throw Log::Exception("vulkan: debugCallback\n" + getInfo(),true);
+            throw eff::Log::Exception("vulkan: debugCallback\n" + getInfo(),true);
             break;
         case VK_DEBUG_REPORT_DEBUG_BIT_EXT:
-            Log::WriteTo().log(" vulkan: \n" + getInfo(), true);
+            eff::Log::WriteTo().log(" vulkan: \n" + getInfo(), true);
             break;
         default:
-            throw Log::Exception("underfined type of error: debugCallback\n" + getInfo(),true);
+            throw eff::Log::Exception("underfined type of error: debugCallback\n" + getInfo(),true);
     }
 
     return VK_FALSE;
@@ -287,7 +287,7 @@ VulkanManager::VulkanPhysicalDevice::VulkanPhysicalDevice(VulkanInstance& instan
     vkEnumeratePhysicalDevices(instance.getInstance(), &deviceCount, nullptr);
 
     if (deviceCount == 0)
-        throw Log::Exception("failed to find GPUs with Vulkan support!");
+        throw eff::Log::Exception("failed to find GPUs with Vulkan support!");
 
     vector<VkPhysicalDevice> devices(deviceCount);
     vkEnumeratePhysicalDevices(instance.getInstance(), &deviceCount, devices.data());
@@ -297,7 +297,7 @@ VulkanManager::VulkanPhysicalDevice::VulkanPhysicalDevice(VulkanInstance& instan
     });
 
     if (rateDevice(physicalDevice) == 0) 
-        throw Log::Exception("failed to find a suitable GPU!");
+        throw eff::Log::Exception("failed to find a suitable GPU!");
 
 }
 
@@ -386,7 +386,7 @@ VulkanManager::VulkanLogicalDevice::VulkanLogicalDevice(VulkanManager* _vkManage
         }
 
         if (vkCreateDevice(main_vkManager->physicalDevice->getVkPhysicalDevice(), &createInfo, nullptr, &logicalDevice) != VK_SUCCESS) 
-            throw Log::Exception("failed to create logical device!");
+            throw eff::Log::Exception("failed to create logical device!");
         
         queueFamilyes.getLogicalDeviceQueues(*this);
 }
@@ -428,7 +428,7 @@ void VulkanManager::VulkanLogicalDevice::QueueFamilyes::findQueueFamilies(){
 
     for(auto& el: listQueue)
         if(el.second.index == -1)
-            Log::WriteTo("log.log").warning("not found queue: " + to_string((int)el.first), true);
+            eff::Log::WriteTo("log.log").warning("not found queue: " + to_string((int)el.first), true);
 
 }
 

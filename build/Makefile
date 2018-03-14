@@ -285,6 +285,33 @@ source/scr/main.cpp.s:
 	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/main.cpp.s
 .PHONY : source/scr/main.cpp.s
 
+source/scr/service/fileServing.o: source/scr/service/fileServing.cpp.o
+
+.PHONY : source/scr/service/fileServing.o
+
+# target to build an object file
+source/scr/service/fileServing.cpp.o:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.o
+.PHONY : source/scr/service/fileServing.cpp.o
+
+source/scr/service/fileServing.i: source/scr/service/fileServing.cpp.i
+
+.PHONY : source/scr/service/fileServing.i
+
+# target to preprocess a source file
+source/scr/service/fileServing.cpp.i:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.i
+.PHONY : source/scr/service/fileServing.cpp.i
+
+source/scr/service/fileServing.s: source/scr/service/fileServing.cpp.s
+
+.PHONY : source/scr/service/fileServing.s
+
+# target to generate assembly for a file
+source/scr/service/fileServing.cpp.s:
+	$(MAKE) -f CMakeFiles/effort_engine.dir/build.make CMakeFiles/effort_engine.dir/source/scr/service/fileServing.cpp.s
+.PHONY : source/scr/service/fileServing.cpp.s
+
 source/scr/service/localTime.o: source/scr/service/localTime.cpp.o
 
 .PHONY : source/scr/service/localTime.o
@@ -366,6 +393,9 @@ help:
 	@echo "... source/scr/main.o"
 	@echo "... source/scr/main.i"
 	@echo "... source/scr/main.s"
+	@echo "... source/scr/service/fileServing.o"
+	@echo "... source/scr/service/fileServing.i"
+	@echo "... source/scr/service/fileServing.s"
 	@echo "... source/scr/service/localTime.o"
 	@echo "... source/scr/service/localTime.i"
 	@echo "... source/scr/service/localTime.s"
