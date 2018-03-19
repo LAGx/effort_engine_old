@@ -267,7 +267,6 @@ VkInstance& Instance::getInstance(){
 }
 
 
-
 vector<const char*> Instance::getRequiredGLFWExtensions() const{
     uint32_t glfwExtensionCount = 0;
     const char** glfwExtensions;
@@ -370,4 +369,47 @@ bool PhysicalDevice::isExtentionSupported() const{
 
 const vector<const char*>& PhysicalDevice::getExtentions() const{
     return extentions;
+}
+
+
+//             QUEUE FAMILYES
+
+
+//
+
+
+//             LOGICAL DEVICE
+
+
+LogicalDevice::LogicalDevice(Instance& instance, PhysicalDevice& physicalDevice){
+
+        vector<VkDeviceQueueCreateInfo> queueCreateInfos = queueFamilyes.queueCreateInfos();
+
+        VkDeviceCreateInfo createInfo = {};
+        createInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
+        createInfo.queueCreateInfoCount = static_cast<uint32_t>(queueCreateInfos.size());
+        createInfo.pQueueCreateInfos = queueCreateInfos.data();
+
+        VkPhysicalDeviceFeatures deviceFeatures = {};
+        createInfo.pEnabledFeatures = &deviceFeatures;
+
+        createInfo.enabledExtensionCount = static_cast<uint32_t>(physicalDevice.getExtentions().size());
+        createInfo.ppEnabledExtensionNames = physicalDevice.getExtentions().data();
+
+        if (instance.validation_layer != nullptr) {
+            createInfo.enabledLayerCount = static_cast<uint32_t>(instance.validation_layer->getLayersList().size());
+            createInfo.ppEnabledLayerNames = instance.validation_layer->getLayersList().data();
+        } else {
+            createInfo.enabledLayerCount = 0;
+        }
+
+        if (vkCreateDevice(physicalDevice.getVkPhysicalDevice(), &createInfo, nullptr, &logicalDevice) != VK_SUCCESS) 
+            throw eff::Log::Exception("failed to create logical device!");
+        
+        //queueFamilyes.setLogicalDeviceQueues(*this);
+}
+
+
+LogicalDevice::~LogicalDevice(){
+    vkDestroyDevice(logicalDevice, nullptr);
 }

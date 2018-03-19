@@ -108,8 +108,10 @@ private:
 };
 
 
+class LogicalDevice;
 
 class Instance{ 
+friend LogicalDevice;
 public:
     /*!
         @brief create instance struct
@@ -172,6 +174,8 @@ protected:
 
 };
 
+
+
 class QueueFamilyes{ //TODO
 public:
     
@@ -189,7 +193,14 @@ protected:
 class LogicalDevice{ //TODO
 public:
 
+    LogicalDevice(Instance& instance, PhysicalDevice& physicalDevice);
+
+    ~LogicalDevice();
+
 protected:
+    
+    QueueFamilyes queueFamilyes;
+    VkDevice logicalDevice;
 
 };
 
