@@ -36,8 +36,7 @@
                 "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed",
                 "/usr/include/x86_64-linux-gnu",
                 "/usr/include",
-                "${workspaceRoot}/source/headers",
-                "/usr/local/include/anvil"
+                "${workspaceRoot}/source/headers"
             ],
             "defines": ["DEBUG_MODE"],
             "intelliSenseMode": "clang-x64",
@@ -51,7 +50,8 @@
                     "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed",
                     "/usr/include/x86_64-linux-gnu",
                     "/usr/include",
-                    "${workspaceRoot}"
+                    "${workspaceRoot}",
+                    "${workspaceRoot}/source/headers"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""

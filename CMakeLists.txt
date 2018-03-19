@@ -43,7 +43,6 @@ include_directories("source/headers")
 include_directories("/usr/local/include/lua")
 include_directories("/usr/local/include/GLFW")
 include_directories($ENV{VULKAN_SDK}/include)
-include_directories("/usr/local/include/anvil")
 
 
 add_executable(${PROJECT_NAME} ${ALL_CPP_NATIVE_CODE})
@@ -55,11 +54,3 @@ target_link_libraries(${PROJECT_NAME} Vulkan::Vulkan)
 #i don`t know why it need there
 target_link_libraries(${PROJECT_NAME} "/usr/local/lib/liblua53.a" ${CMAKE_DL_LIBS})
 
-#anvil libs
-target_link_libraries(${PROJECT_NAME} "/usr/local/lib/anvil/libAnvil.a" ${CMAKE_DL_LIBS})
-target_link_libraries(${PROJECT_NAME} "/usr/local/lib/anvil/libglslang.a" ${CMAKE_DL_LIBS})
-target_link_libraries(${PROJECT_NAME} "/usr/local/lib/anvil/libHLSL.a" ${CMAKE_DL_LIBS})
-target_link_libraries(${PROJECT_NAME} "/usr/local/lib/anvil/libOGLCompiler.a" ${CMAKE_DL_LIBS})
-target_link_libraries(${PROJECT_NAME} "/usr/local/lib/anvil/libOSDependent.a" ${CMAKE_DL_LIBS})
-target_link_libraries(${PROJECT_NAME} "/usr/local/lib/anvil/libSPIRV.a" ${CMAKE_DL_LIBS})
-target_link_libraries(${PROJECT_NAME} "/usr/local/lib/anvil/libSPVRemapper.a" ${CMAKE_DL_LIBS})

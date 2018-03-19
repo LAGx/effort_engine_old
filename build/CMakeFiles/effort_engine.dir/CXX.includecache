@@ -27,6 +27,8 @@ vector
 -
 service/fileServing.h
 ../source/headers/core/graphic/service/fileServing.h
+glm/vec3.hpp
+-
 
 ../source/headers/core/graphic/vulkan_manager.h
 core/graphic/glfw_low_tools.h

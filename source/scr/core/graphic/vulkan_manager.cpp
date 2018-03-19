@@ -18,5 +18,6 @@ VulkanManager::VulkanManager(const WindowCreateInfo& windowCreateInfo, const Ins
 
 
 VulkanManager::~VulkanManager(){
-
+    window.reset(nullptr);
+    instance.reset(nullptr);
 }

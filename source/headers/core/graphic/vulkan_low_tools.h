@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "service/fileServing.h"
+#include <glm/vec3.hpp>
 
 using namespace std;
 
@@ -34,7 +35,7 @@ public:
     ~Surface();
 
 protected:
-
+    
     VkInstance &parentInstance;
     VkSurfaceKHR surface;
 
@@ -60,36 +61,38 @@ public:
                                                  "VK_DEBUG_REPORT_DEBUG_BIT_EXT"]
     
     */
-    ValidationLayers(VkInstance &instance, const JsonSettings_SafeFileName& validationLayersFile = "resource/data/VulkanValidationLayers.json");
+    ValidationLayers( const JsonSettings_SafeFileName& validationLayersFile);
 
-    bool isSupport(string &error_layer) const;
     const vector<const char *> &getLayersList();
 
-    bool isHaveToExit();
+    bool isHaveToExist() const;
+
+    VkResult setInstanceCallback(VkInstance& instance);
 
     ~ValidationLayers();
 
 private:
 
+    bool isSupportAllLayers(string& error_layer) const;
+    
+    void deleteInstanceCallback();
+
     bool isHaveToExist_ = true;
 
-    VkInstance &parentInstance;
+    VkInstance*  parentInstance = nullptr;
 
     static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
-        VkDebugReportFlagsEXT flags,
-        VkDebugReportObjectTypeEXT objType,
-        uint64_t obj,
-        size_t location,
-        int32_t code,
-        const char *layerPrefix,
-        const char *msg,
-        void *userData
-    );
+                VkDebugReportFlagsEXT flags,
+                VkDebugReportObjectTypeEXT objType,
+                uint64_t obj,
+                size_t location,
+                int32_t code,
+                const char* layerPrefix,
+                const char* msg,
+                void* userData
+            );
 
-    vector<const char *> validationLayersList = {
-      //  "VK_LAYER_LUNARG_standard_validation" //TODO fill vector only with constructor
-    };
-
+    vector<const char *> validationLayersList;
 
     VkDebugReportFlagsEXT flagsCallback;
 
@@ -116,6 +119,10 @@ public:
     */
     struct CreateInfo{
         string aplicationName = "effort_engine";
+        glm::vec3 aplication_version = {0,0,0};
+        glm::vec3 engine_version = {0,0,0};
+        const string engine_name  = "EFFORT_ENGINE";
+
  #ifdef WIN_OS
         JsonSettings_SafeFileName filename_ValidationLayerList = "resource\data\VulkanValidationLayers.json";
  #else
@@ -134,7 +141,7 @@ protected:
     VkInstance instance;
     unique_ptr<ValidationLayers> validation_layer = nullptr;
 
-    vector<const char*> getRequiredExtensions();
+    vector<const char*> getRequiredGLFWExtensions()const;
 };
 
 

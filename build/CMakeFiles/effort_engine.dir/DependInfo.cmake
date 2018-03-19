@@ -28,7 +28,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/include/lua"
   "/usr/local/include/GLFW"
   "/home/kvark/tools/VulkanSDK/1.0.65.0/x86_64/include"
-  "/usr/local/include/anvil"
   "../Vulkan::Vulkan"
   "/usr/local/include"
   )

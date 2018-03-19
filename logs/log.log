@@ -1,1 +1,29 @@
-WARNING|22:48:22|> error was catch: no such flagsCallback: VK_DEBUG_REPORT_DEBUG_BIT_EXT_
+LOG|>  Validation layers pluged in
+LOG|20:16:20|> was triggered vulkan debagCallback. type: DebugReport
+LOG|20:16:20|>  vulkan: 
+		object type: 28
+		message: Added callback
+LOG|20:16:20|> was triggered vulkan debagCallback. type: DebugReport
+LOG|20:16:20|>  vulkan: 
+		object type: 28
+		message: Added callback
+LOG|20:16:20|> was triggered vulkan debagCallback. type: ObjectTracker
+LOG|20:16:20|>  vulkan: 
+		object type: 31
+		message: OBJ[0x1] : CREATE DebugReportCallbackEXT object 0x29bc9e0
+LOG|20:16:20|> was triggered vulkan debagCallback. type: DebugReport
+LOG|20:16:20|>  vulkan: 
+		object type: 28
+		message: Added callback
+LOG|20:16:20|> was triggered vulkan debagCallback. type: DebugReport
+LOG|20:16:20|>  vulkan: 
+		object type: 28
+		message: Added callback
+LOG|20:16:20|> was triggered vulkan debagCallback. type: ObjectTracker
+LOG|20:16:20|>  vulkan: 
+		object type: 27
+		message: OBJ[0x2] : CREATE SurfaceKHR object 0x1
+LOG|20:16:20|> was triggered vulkan debagCallback. type: ObjectTracker
+LOG|20:16:20|>  vulkan: 
+		object type: 27
+		message: OBJ_STAT Destroy SurfaceKHR obj 0x1 (2 total objs remain & 0 SurfaceKHR objs).

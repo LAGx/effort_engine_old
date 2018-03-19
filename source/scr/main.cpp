@@ -21,7 +21,7 @@ int main(){
 
     VulkanManager::WindowCreateInfo windowInfo;
     windowInfo.isResizable = true;
-    windowInfo.size = glm::vec2({900,500});
+    windowInfo.size = glm::vec2({400,250});
     
     VulkanManager::InstanceCreateInfo instanceInfo;
 

@@ -160,6 +160,7 @@ VkResult VulkanManager::VulkanInstance::ValidationLayer::setInstanceCallback(VkI
 }
 
 
+
 VkResult VulkanManager::VulkanInstance::ValidationLayer::CreateDebugReportCallbackEXT(
     VkInstance& instance, 
     const VkDebugReportCallbackCreateInfoEXT* pCreateInfo, 

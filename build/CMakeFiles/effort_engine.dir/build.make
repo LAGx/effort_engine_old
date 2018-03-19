@@ -202,13 +202,6 @@ effort_engine: CMakeFiles/effort_engine.dir/build.make
 effort_engine: /usr/local/lib/libglfw3.a
 effort_engine: /usr/lib/x86_64-linux-gnu/libvulkan.so
 effort_engine: /usr/local/lib/liblua53.a
-effort_engine: /usr/local/lib/anvil/libAnvil.a
-effort_engine: /usr/local/lib/anvil/libglslang.a
-effort_engine: /usr/local/lib/anvil/libHLSL.a
-effort_engine: /usr/local/lib/anvil/libOGLCompiler.a
-effort_engine: /usr/local/lib/anvil/libOSDependent.a
-effort_engine: /usr/local/lib/anvil/libSPIRV.a
-effort_engine: /usr/local/lib/anvil/libSPVRemapper.a
 effort_engine: /usr/lib/x86_64-linux-gnu/librt.so
 effort_engine: /usr/lib/x86_64-linux-gnu/libm.so
 effort_engine: /usr/lib/x86_64-linux-gnu/libX11.so
