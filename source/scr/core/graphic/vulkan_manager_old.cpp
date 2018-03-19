@@ -20,7 +20,6 @@ VulkanManager::VulkanManager(const WindowCreateInfo& windowInfo,const InstanceCr
     physicalDevice = move(unique_ptr<VulkanPhysicalDevice>(new VulkanPhysicalDevice(*instance.get())));
     logicalDevice = move(unique_ptr<VulkanLogicalDevice>(new VulkanLogicalDevice(this)));
 
-
 }
 
 

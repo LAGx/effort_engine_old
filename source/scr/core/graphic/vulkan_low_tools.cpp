@@ -289,3 +289,85 @@ Instance::~Instance(){
 }
 
 
+//               PHISICAL DEVICE
+
+
+PhysicalDevice::PhysicalDevice(VkInstance& instance){
+
+    uint32_t deviceCount = 0;
+    vkEnumeratePhysicalDevices(instance, &deviceCount, nullptr);
+
+    if (deviceCount == 0)
+        throw eff::Log::Exception("failed to find GPUs with Vulkan support!");
+
+    vector<VkPhysicalDevice> devices(deviceCount);
+    vkEnumeratePhysicalDevices(instance, &deviceCount, devices.data());
+
+    physicalDevice = *max_element(devices.begin(), devices.end(),[this](const VkPhysicalDevice& dv1, const VkPhysicalDevice& dv2){
+        return rateDevice(dv1) < rateDevice(dv2);
+    });
+
+    if (rateDevice(physicalDevice) == 0) 
+        throw eff::Log::Exception("failed to find a suitable GPU!");
+
+}
+
+
+
+PhysicalDevice::rateDevicePoints PhysicalDevice::rateDevice(const VkPhysicalDevice& device) const{
+
+    rateDevicePoints ratePoints = 0;
+
+
+//minimum requaied
+    VkPhysicalDeviceProperties deviceProperties;
+    VkPhysicalDeviceFeatures deviceFeatures;
+    vkGetPhysicalDeviceProperties(device, &deviceProperties);
+    vkGetPhysicalDeviceFeatures(device, &deviceFeatures);
+
+    bool isMinimumRequaiedSupport = deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU &&
+                                                                          deviceFeatures.geometryShader &&
+                                                                          isExtentionSupported();
+
+    if(isMinimumRequaiedSupport)
+        ratePoints += 1;
+    else
+        return 0;
+
+
+//rate system
+    ratePoints += deviceProperties.limits.maxImageDimension2D;
+    
+
+    return ratePoints;
+}
+
+
+
+VkPhysicalDevice& PhysicalDevice::getVkPhysicalDevice(){
+    return physicalDevice;
+}
+
+
+
+bool PhysicalDevice::isExtentionSupported() const{
+    uint32_t extensionCount;
+    vkEnumerateDeviceExtensionProperties(physicalDevice, nullptr, &extensionCount, nullptr);
+
+    vector<VkExtensionProperties> availableExtensions(extensionCount);
+    vkEnumerateDeviceExtensionProperties(physicalDevice, nullptr, &extensionCount, availableExtensions.data());
+
+    set<string> requiredExtensions(extentions.begin(), extentions.end());
+
+    for (const auto& extension : availableExtensions) 
+        requiredExtensions.erase(extension.extensionName);
+    
+
+    return requiredExtensions.empty();
+}
+
+
+
+const vector<const char*>& PhysicalDevice::getExtentions() const{
+    return extentions;
+}

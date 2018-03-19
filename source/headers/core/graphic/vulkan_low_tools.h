@@ -109,7 +109,7 @@ private:
 
 
 
-class Instance{ //TODO
+class Instance{ 
 public:
     /*!
         @brief create instance struct
@@ -145,15 +145,36 @@ protected:
 };
 
 
-class PhysicalDevice{ //TODO
+///@brief pick good phisical device.
+class PhysicalDevice{
 public:
 
+    PhysicalDevice(VkInstance& instance);
+
+    VkPhysicalDevice& getVkPhysicalDevice();
+
+    const vector<const char*>& getExtentions() const;
+
 protected:
+
+    VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
+
+    vector<const char*> extentions = {
+                VK_KHR_SWAPCHAIN_EXTENSION_NAME
+            };
+
+    bool isExtentionSupported() const;
+
+    //TODO more complex rating
+    typedef size_t rateDevicePoints;
+    rateDevicePoints rateDevice(const VkPhysicalDevice& device) const;//< if return 0, then this device don`t suppurt Vulkan
+
 
 };
 
 class QueueFamilyes{ //TODO
 public:
+    
 
 protected:
     
